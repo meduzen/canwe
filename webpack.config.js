@@ -9,8 +9,7 @@ const path = require('path')
 function thePath(folder = '') { return path.resolve(__dirname, folder) }
 const assets = 'src'
 
-// Plugins: folder cleaning
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// Plugins: folder copy
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // Plugins: reload & cli output
@@ -59,7 +58,7 @@ config = {
   },
 
   output: {
-    path: thePath('public/css'),
+    path: thePath('public'),
   },
 
   module: {
@@ -103,7 +102,6 @@ config = {
         to: thePath('public'),
       },
     ]),
-    new CleanWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new NotifierPlugin({ title: 'CSS', ...NotifierPluginOptions }),
     new BrowserSyncPlugin({
