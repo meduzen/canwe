@@ -94,10 +94,6 @@ config = {
         to: thePath('public/fonts'),
       },
       {
-        from: `${assets}/img/`,
-        to: thePath('public/img'),
-      },
-      {
         from: `${assets}/manifest/`,
         to: thePath('public'),
       },
