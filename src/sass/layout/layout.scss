@@ -2,10 +2,12 @@
 @import 'footer';
 
 .main {
+  width: 100%;
   padding-top: 4rem;
 
   @media (--tablet-7) {
     padding-top: 7rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -13,10 +15,14 @@
   display: grid;
   grid-gap: 1rem;
 
-  @media (--phone) {
+  @media (--tablet-7) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
     align-items: stretch;
+  }
+
+  @media (--tablet-10) {
+    grid-gap: 2.8rem 3rem;
   }
 }
 
@@ -24,19 +30,19 @@
   position: relative;
   padding: 2rem;
 
-  background: v(site-bg, v(bg));
+  background: v(site-bg, v(primary));
+  // border: 0.2rem solid v(site-accent);
   border-radius: .5rem;
   box-shadow:
     hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
     hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
-  color: v(site-primary, v(primary));
+  color: v(site-primary, v(bg));
 
-  transition: .65s $ease-out-cubic .1s;
-  transition-property: opacity, transform;
+  transition: transform .65s $ease-out-cubic;
 
   @media (--phone) {
     &:hover, &:focus-within {
-      transform: translate3d(0, -.7rem, 0) scale(1.05);
+      transform: scale(1.02);
 
       &::after {
         opacity: 1;
@@ -44,19 +50,26 @@
     }
   }
 
+  @media (--tablet-7) {
+    border-radius: .8rem;
+  }
+
+  @media (--tablet-10) {
+    border-radius: 1.2rem;
+  }
+
   &::after {
     content: '';
     @include position (absolute, 0 0 0 0);
 
-    background: v(site-bg, v(bg));
-    border-radius: .5rem;
+    background: inherit;
+    border-radius: .8rem;
     box-shadow:
       hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
       hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
     opacity: 0;
 
-    transition: .65s $ease-out-cubic .1s;
-    transition-property: opacity, transform;
+    transition: opacity .65s $ease-out-cubic;
   }
 }
 
@@ -72,16 +85,31 @@
 .site__title {
   font-family: 'Baloo';
   font-weight: 400;
+  font-size: 2.6rem;
 
-  color: v(site-accent);
+  color: v(site-accent, v(site-primary));
+
+  @media (--tablet-10) {
+    font-size: 3.3rem;
+  }
+}
+
+.site__description {
+  margin: 1rem 0 4rem;
+
+  @media (--tablet-10) {
+    margin-bottom: 7rem;
+
+    font-size: 1.8rem;
+  }
 }
 
 .site__link {
   margin-top: auto;
 
-  // font-weight: 500;
+  color: v(site-accent, v(site-primary));
+  opacity: .6;
 
-  color: v(site-accent);
   text-decoration: none;
 }
 
@@ -90,25 +118,28 @@
 }
 
 .caniuse {
-  --site-bg: #db5600;
-  --site-primary: #fff;
-  --site-accent: #fff;
+  --site-primary: hsl(39, 53%, 89%);
+  --site-bg: hsl(24, 100%, 43%);
+  --site-accent: hsl(0, 0%, 100%);
 }
 
 .caniemail {
-  --site-bg: #0a84ff;
-  --site-primary: #fff;
-  --site-accent: #fff;
+  --site-primary: hsla(0, 0%, 100%, .85);
+  --site-bg: hsl(210, 100%, 52%);
+  --site-accent: hsl(0, 0%, 100%);
 }
 
 .whocanuse {
-  --site-bg: #663399;
-  --site-primary: #fff;
-  --site-accent: #fff;
+  --site-primary: hsla(0, 0%, 100%, .85);
+  --site-bg: hsl(270, 50%, 40%);
+  --site-accent: hsl(0, 0%, 100%);
 }
 
 .canistop {
-  --site-bg: #fff;
-  --site-primary: hsl(0 0% 18%);
-  --site-accent: hsl(224 88% 57%);
+  --site-primary: hsl(0, 0%, 18%);
+  --site-bg: hsl(0, 0%, 100%);
+  --site-accent: hsl(224, 88%, 57%);
+  --site-primary: hsl(0, 0%, 18%);
+  --site-bg: hsl(0, 0%, 100%);
+  --site-accent: hsl(224, 88%, 57%);
 }

@@ -1,2 +1,23 @@
-$white:   hsl(0, 0%, 100%);
+$black-h: 0;
+$black-s: 0%;
+$black-l: 13%;
+$black-a: 1;
+
 $black:   hsl(0, 0%, 13%);
+$black:   #{hsla(v(black-h), v(black-s), v(black-l), v(black-a))};
+
+$white-h: 0;
+$white-s: 0%;
+$white-l: 100%;
+$white-a: 1;
+
+$white:   hsl(0, 0%, 100%);
+$white:   #{hsla(v(white-h), v(white-s), v(white-l), v(white-a))};
+
+$red-h: 15;
+$red-s: 100%;
+$red-l: 50%;
+$red-a: 1;
+
+$red:   hsl(0, 0%, 100%);
+$red:   #{hsla(v(red-h), v(red-s), v(red-l), v(red-a))};

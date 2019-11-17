@@ -5,8 +5,9 @@
 
 .grid {
   @media (--grid) {
+    width: 100%;
+    max-width: 116rem;
     margin-right: auto;
     margin-left: auto;
-    max-width: 130rem;
   }
 }

@@ -3,8 +3,14 @@
     padding-top: 2rem;
   }
 
-  @media (--phone) {
-    padding-top: 2rem;
+  @media (--tablet-10) {
+    padding-top: 3rem;
+  }
+
+  @media (--grid) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -21,8 +27,17 @@
 }
 
 .quote {
-  @media (--phone) {
+  @media (--phone-to-grid) {
     padding-left: 1rem;
     border-left: .5rem solid v(accent);
+  }
+
+  @media (--tablet-10) {
+    font-size: 2rem;
+  }
+
+  @media (--grid) {
+    position: relative;
+    top: .7rem;
   }
 }
