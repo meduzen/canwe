@@ -2,9 +2,9 @@
 
 Yes, we (web developers) can!
 
-## I’d like to propose a _Super CanSomething website_
+## I’d like to propose a _SuperCanSomething website_
 
-Open [issue](https://github.com/meduzen/canwe/issues) or (faster) a pull request.
+Open an [issue](https://github.com/meduzen/canwe/issues) or (faster) a pull request.
 
 ## Development
 
@@ -16,4 +16,4 @@ All good `public/index.html` editing.
 
 - `npm install`
 - create `.env` from `.env.example`, then edit it
-- (local) `npm run dev`, `npm run watch` or (prod) `npm run prod`
+- _(local)_ `npm run dev`, `npm run watch` or _(prod)_ `npm run prod`
