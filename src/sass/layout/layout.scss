@@ -104,17 +104,30 @@
   }
 }
 
-.site__link {
+.site__links {
   margin-top: auto;
+
+  @media (--phone) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.site__link {
+  display: inline-flex;
+
+  vertical-align: middle;
+  text-decoration: none;
 
   color: v(site-accent, v(site-primary));
   opacity: .6;
 
-  text-decoration: none;
-}
+  transition: opacity .3s $ease-in-out-quad;
 
-.site__external {
-  display: none;
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 }
 
 .caniuse {
