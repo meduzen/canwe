@@ -1,0 +1,313 @@
+$global-w: (
+  'phone': 20em, // 320px
+  'tablet-7': 37.5em, // 600px
+  'tablet-10': 52.5em, // 840px
+  'grid': 80em, // 1280px (1160 + 2 * x-space)
+);
+
+@include --w($global-w);
+
+:root {
+  --primary: #{$black};
+  --bg: #{$white};
+  --accent: #{$black};
+
+  @media (--dark) {
+    --primary: #{$white};
+    --bg: #{$black};
+    --accent: #{$white};
+  }
+
+  --x-space: 0.5rem;
+
+  --card-radius: .5rem;
+
+  @media (--phone) {
+    --x-space: 2rem;
+  }
+
+  @media (--tablet-7) {
+    --x-space: 4rem;
+  }
+
+  @media (--tablet-10) {
+    --x-space: 6rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  @media (--reduced-motion) {
+    transition: 0.001s !important;
+    animation: 0.001s !important;
+  }
+}
+
+* {
+  touch-action: manipulation;
+}
+
+::selection {
+  background: v(accent);
+  color: v(bg);
+}
+
+/* HTML & BODY */
+
+html {
+  width: 100%;
+  height: 100%;
+
+  background: v(bg);
+  color: v(primary);
+
+  font: 400 46.875% / #{$body-lh} $body-font;
+  @include font-smoothing(on);
+
+  @media (--phone) {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  font-size: $body-size;
+
+  @media (--phone) {
+    overflow-x: hidden;
+  }
+}
+
+/* LISTS */
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+dl,
+dd {
+  margin: 0;
+}
+
+/* QUOTES */
+
+blockquote {
+  margin: 0;
+}
+
+/* IMAGES */
+
+figure {
+  margin: 0;
+
+  font-size: 0;
+}
+
+img {
+  position: relative;
+  // z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+
+  &::selection {
+    background: v(accent);
+  }
+
+  // // Not loading images.
+  // &::after {
+  //   content: '\0274f' ' ' attr(alt);
+  //   @include position(absolute, 0 null null 0);
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 100%;
+  //   height: 100%;
+  //   padding: 0 1em;
+
+  //   color: $jumbo;
+  //   background: lighten($jumbo, 21%);
+
+  //   font-size: $body-size;
+  // }
+}
+
+/* FORMS */
+
+fieldset {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+input {
+  padding: 0;
+
+  appearance: none;
+  border-radius: 0; // Safari iOS
+
+  line-height: inherit;
+
+  // Safari MacOS contact icon.
+  &::-webkit-contacts-auto-fill-button {
+    display: block !important;
+    transform: translate3d(100%, 0, 0);
+
+    background-color: v(accent);
+    opacity: 0;
+  }
+
+  &:focus,
+  &:hover {
+
+    &::-webkit-contacts-auto-fill-button {
+      display: block !important;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+
+      transition: .65s $ease-in-out-circ .05s;
+      transition-property: opacity, transform;
+
+      &:hover {
+        transform: translate3d(0, 0, 0) scale(1.1);
+
+        transition-duration: .4s;
+        transition-delay: 0;
+      }
+    }
+  }
+}
+
+select {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+option {
+  padding-block-start: 0;
+  padding-inline-start: 0;
+  padding-block-end: 0;
+  padding-inline-end: 0;
+}
+
+input,
+select {
+
+  // Autofill colors hack
+  &:-webkit-autofill {
+    -webkit-text-fill-color: v(primary);
+    background-color: transparent;
+    box-shadow: 0 0 0px 100px transparent inset;
+    transition: background-color 500000s ease-in-out 500000s;
+
+    &::selection {
+      -webkit-text-fill-color: v(accent);
+    }
+  }
+}
+
+input,
+button {
+  background: transparent;
+  border: none;
+  color: v(primary);
+
+  font-weight: 500;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  padding: 0;
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-touch-callout: none;
+
+  color: v(primary);
+
+  * { pointer-events: none; }
+}
+
+/* ABBREVIATIONS */
+
+abbr[title] {
+  &:not(:hover) {
+    @media (--phone) {
+      border: none;
+
+      text-decoration: none;
+    }
+  }
+}
+
+/* ADDRESS */
+
+address {
+  font-style: normal;
+}
+
+/* LINKS */
+
+a {
+  color: v(primary);
+
+  // transition: color .15s $ease-in-out-quad;
+
+  // @media (--phone) {
+  //   text-decoration: none;
+  // }
+
+  // &:focus,
+  // &:hover {
+  //   color: v(accent);
+
+  //   @include outline(v(accent), .1rem, dashed, .3rem);
+  // }
+}
+
+/* TITLES */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @media (--phone) {
+    margin: 0;
+  }
+
+  em {
+    font-style: normal;
+  }
+}
+
+/* SVG */
+
+svg {
+  pointer-events: none;
+
+  * { transform-origin: 50% 50%; }
+}

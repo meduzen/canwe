@@ -1,0 +1,12 @@
+.x-space {
+  padding-left: v(x-space);
+  padding-right: v(x-space);
+}
+
+.grid {
+  @media (--grid) {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 130rem;
+  }
+}

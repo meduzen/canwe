@@ -1,0 +1,10 @@
+.noselect,
+.dragging * {
+  user-select: none;
+
+  // When a target is touched and held on iOS, Safari displays a callout information about the link. This property allows disabling that behavior.
+  -webkit-touch-callout: none;
+}
+
+.dragging * { pointer-events: none; }
+.scrolling * { pointer-events: none !important; }

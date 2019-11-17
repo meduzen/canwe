@@ -1,0 +1,28 @@
+.header {
+  @media (--phone) {
+    padding-top: 2rem;
+  }
+
+  @media (--phone) {
+    padding-top: 2rem;
+  }
+}
+
+.canwe__logo {
+  height: auto;
+
+  @media (--tablet-7) {
+    width: 15rem;
+  }
+
+  @media (--tablet-10) {
+    width: 20rem;
+  }
+}
+
+.quote {
+  @media (--phone) {
+    padding-left: 1rem;
+    border-left: .5rem solid v(accent);
+  }
+}

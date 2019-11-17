@@ -15,14 +15,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5000d3">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Can We Use">
     <meta name="application-name" content="Can We Use">
-    <meta name="msapplication-TileColor" content="#5000d3">
+    <meta name="msapplication-TileColor" content="#fff">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#5000d3">
+    <meta name="theme-color" content="#fff">
 
     <!-- Sharing -->
     <meta property="og:site_name" content="Can We Use">
@@ -45,45 +45,83 @@
 
 <a href="#main" class="visually-hidden">Skip to main content.</a>
 
-<header>
-    <h1>Can We</h1>
-    <p>One website to gather them all.</p>
+<header class="header | x-space">
+    <h1 class="canwe">
+        <svg
+            class="canwe__logo"
+            width="94" height="36" viewBox="0 0 300 115"
+            fill="currentColor"
+            version="1.0" xmlns="http://www.w3.org/2000/svg"
+        >
+            <title>Can We</title>
+            <path d="M19.6 27.4C6.8 32.1.1 47 2.9 64.1 4.8 75.9 10 83.3 19 87.3c13.1 5.8 33.4-1.6 29.2-10.7L47 73.9l-2.9 2.2c-7.1 5.3-18.4 2.4-23-5.9-2.9-5.4-4-18.5-2.2-25.9 3.3-12.9 15.2-14.2 19.1-2.1 1.1 3.7 1.2 3.8 6.2 3.8h5.1l-.7-7.8c-1-12.1-1.2-12.5-5.5-11.7l-4.6.6c-10.8-1-15.5-.9-18.9.3z"/>
+            <path d="M67.9 41c-6.1 1.1-8.6 2.5-10.9 6.3-2.5 4.1-2.5 5.8.1 9.1 2.9 3.6 8.3 3.3 11.2-.6 1.9-2.5 1.9-2.9.4-5.1-1.9-2.9-1.4-3.7 2.3-3.7 5.1 0 6.4 2 6.4 10.1l.1 7.4-3-.5c-5.6-.9-13-.3-16.1 1.3-4 2.1-6.8 7.8-6 12.5 1.4 9.1 13.7 14.1 22.6 9.3 3.5-1.8 3.6-1.8 5.9 0 3.8 3.1 13.3 2 14.7-1.6.4-.9-.2-2.5-1.2-3.6-1.6-1.8-2-4.3-2.4-17.9-.5-15.8-.5-15.9-3.4-18.9a14 14 0 00-7.8-4 24.3 24.3 0 00-12.9-.1zm8.5 30.6c1.1.4 1.6 1.9 1.6 4.5 0 3.3-.4 4.1-2.6 5.1a5.7 5.7 0 01-7.4-8.1c1.1-2.1 5-2.8 8.4-1.5z"/>
+            <path d="M104.8 42.6c-4 1.2-4.8 1.9-4.8 3.9 0 1.7.6 2.5 2.3 2.7 2.2.3 2.2.6 2.5 16.3.2 15.4.2 16-1.9 17.6-1.4 1-2 2.2-1.6 3.3 1 2.4 21.5 2.4 22.4-.1.4-1.1-.1-2.2-1.5-3.1-2.1-1.4-2.2-2.1-2.2-16.8 0-14.1.2-15.4 1.9-16.4 2.8-1.4 5.7-1.2 7.5.6 1.3 1.3 1.6 4.3 1.6 16.9 0 8.5.4 16.5 1 17.9 1.2 3.2 4.7 4.1 11.2 3 6.3-1.1 8.4-3.6 5-5.9-2.1-1.5-2.2-2.2-2.2-15.8 0-16-.9-20.7-4.7-23.7-3.9-3-12.8-2.8-17.7.5l-3.7 2.5-.9-2.5c-.8-2.1-1.6-2.5-5.2-2.4-2.4 0-6.4.7-9 1.5z"/>
+            <path d="M167.7 27.7c-1.5 1.5-.6 4.4 1.7 5.3 2 .7 2.9 2.4 4.6 8.2l7.6 25.8 6 20.2c.8 2.9 7.6 2.4 11.3-.8 3.4-2.8 4.9-7 9.7-26.4 1.5-6.2 2.9-11 3.1-10.5l5.7 20c5.2 18.4 5.5 19 8.1 19.3 1.5.2 3.8.1 5.1-.2 5.5-1.4 7-5 16.4-39.3 4.1-14.9 4.3-15.2 7.5-16.3 2.7-.9 3.1-1.5 2.7-3.5-.4-2.5-.5-2.5-11.2-2.5s-10.8 0-11.2 2.5c-.4 2 0 2.8 2.1 3.8 1.5.7 2.7 2.2 2.9 3.6.4 2.2-6.2 30.1-7.7 32.9-.4.7-2.7-6.1-5.1-15.5l-5.2-20.1c-.9-3.1-1.1-3.2-6.3-3.2-4.5 0-5.7.4-7.3 2.4-1.6 2.1-8 23.6-9.8 33.3-.4 1.8-.9 3.3-1.3 3.3-.6 0-7.8-27.2-8.9-33.2-.3-2.3.1-2.9 2.2-3.8 2.7-1 3-1.7 2-4.4-.5-1.3-2.6-1.6-12.3-1.6-6.5 0-12.1.3-12.4.7z"/>
+            <path d="M271.5 42.4c-8 3.5-12.9 11.8-12.9 22.1-.1 11.6 3.8 19 11.9 22.6 11.7 5.4 29.7-2 24.6-10-.7-1.1-1.3-1.1-3.2.3-2.8 2-11.7 2.1-14.1.2a20 20 0 01-4.8-9.5 32 32 0 0110.6-1.3c9.9-.3 10.7-.5 12.6-2.8 1.7-2.1 1.9-3.4 1.5-7.9-1-9.7-7.2-15.1-17.1-15.1-3.4.1-7.5.7-9.1 1.4zM283 49c.6 1.2 1 4 .8 6.3l-.3 4.2-5.3.3-5.4.3.7-4.3c.4-2.4 1.3-5.3 2.1-6.6 1.8-2.8 5.9-2.9 7.4-.2z"/>
+        </svg>
+    </h1>
+    <p class="quote"><q>I’m never sure if I can, and I always forget these URL’s…</q> <span class="nowrap">– A doubtful</span> developer.</p>
 </header>
 
-<main id="main">
-    <ul>
-        <li>
-            <article>
-                <h2>Can I Use</h2>
-                <p>Browser features</p>
-                <a href="https://caniuse.com">caniuse.com</a>
+<main class="main | grid x-space" id="main">
+    <ul class="sites">
+        <li class="site caniuse">
+            <article class="site__inner">
+                <h2 class="site__title">Can I Use</h2>
+                <p>Browser features support tables.</p>
+                <a class="site__link" href="https://caniuse.com">caniuse.com</a>
+                <aside class="site__external">
+                    <a href="https://github.com/Fyrd/caniuse">Code</a>
+                    <a href="https://twitter.com/caniuse">Twitter</a>
+                </aside>
             </article>
         </li>
-        <li>
-            <article>
-                <h2>Can I email</h2>
-                <p>Email clients features</p>
-                <a href="https://caniemail.com">caniemail.com</a>
+        <li class="site caniemail">
+            <article class="site__inner">
+                <h2 class="site__title">Can I email</h2>
+                <p>Support tables for HTML and CSS in emails.</p>
+                <a class="site__link" href="https://caniemail.com">caniemail.com</a>
+                <aside class="site__external">
+                    <a href="https://github.com/HTeuMeuLeu/caniemail">Code</a>
+                    <a href="https://twitter.com/caniemail">Twitter</a>
+                </aside>
             </article>
         </li>
-        <li>
-            <article>
-                <h2>Who Can Use</h2>
-                <p>Colors combinations accessibility</p>
-                <a href="https://whocanuse.com">whocanuse</a>
+        <li class="site whocanuse">
+            <article class="site__inner">
+                <h2 class="site__title">Who Can Use</h2>
+                <p>Colors combinations accessibility.</p>
+                <a class="site__link" href="https://whocanuse.com">whocanuse.com</a>
+                <aside class="site__external">
+                    <a href="https://github.com/CoreyGinnivan/whocanuse">Code</a>
+                    <a href="https://twitter.com/CoreyGinnivan">Author Twitter</a>
+                </aside>
             </article>
         </li>
-        <li>
-            <article>
-                <h2>Can I Stop</h2>
-                <p>Browser data by region.</p>
-                <a href="https://canistop.net">canistop.net</a>
+        <li class="site canistop">
+            <article class="site__inner">
+                <h2 class="site__title">Can I Stop</h2>
+                <p>Browser usage by region.</p>
+                <a class="site__link" href="https://canistop.net">canistop.net</a>
+                <aside class="site__external">
+                    <a href="https://gitlab.com/meduzen/canistop">Code</a>
+                    <a href="https://twitter.com/canistopie11">Twitter</a>
+                </aside>
             </article>
         </li>
     </ul>
 </main>
 
-<footer><a href="https://github.com/meduzen/canweuse">Source code and issues</a></footer>
+<footer class="footer">
+    <ul>
+        <li><a href="https://github.com/meduzen/canwe">Code and issues</a></li>
+        <li>Design: <a href="https://mehdi.cc">Mehdi</a></li>
+        <li>Logo font: <a href="https://github.com/SorkinType/Calistoga"><em>Calistoga</em></a> by <a href="https://www.behance.net/YvonneSchuettler">Yvonne&nbsp;Schüttler</a> and <a href="http://sorkintype.com/">Eben&nbsp;Sorkin</a></li>
+    </ul>
+</footer>
+
+<img class="visually-hidden" src="https://matomo.mehdi.cc/matomo.php?idsite=3&amp;rec=1" style="border:0" alt="" />
 
 </body>
 
