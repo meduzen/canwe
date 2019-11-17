@@ -45,17 +45,17 @@ $global-w: (
   --accent-a: var(--red-a);
   --accent: hsla(var(--accent-h), var(--accent-s), var(--accent-l), var(--accent-a));
 
-  // @media (--dark) {
-  //   --primary-h: var(--white-h);
-  //   --primary-s: var(--white-s);
-  //   --primary-l: var(--white-l);
-  //   --primary-a: var(--white-a);
+  @media (--dark) {
+    --primary-h: var(--white-h);
+    --primary-s: var(--white-s);
+    --primary-l: var(--white-l);
+    --primary-a: var(--white-a);
 
-  //   --bg-h: var(--black-h);
-  //   --bg-s: var(--black-s);
-  //   --bg-l: var(--black-l);
-  //   --bg-a: var(--black-a);
-  // }
+    --bg-h: var(--black-h);
+    --bg-s: var(--black-s);
+    --bg-l: var(--black-l);
+    --bg-a: var(--black-a);
+  }
 
   /* Distances */
 
