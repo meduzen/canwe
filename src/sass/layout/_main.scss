@@ -1,0 +1,24 @@
+.main {
+  width: 100%;
+  padding-top: 4rem;
+
+  @media (--tablet-7) {
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.sites {
+  display: grid;
+  grid-gap: 1rem;
+
+  @media (--tablet-7) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    align-items: stretch;
+  }
+
+  @media (--tablet-10) {
+    grid-gap: 2.8rem 3rem;
+  }
+}

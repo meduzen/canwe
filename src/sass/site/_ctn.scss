@@ -1,0 +1,60 @@
+.site {
+  --site-radius: .5rem;
+
+  position: relative;
+  padding: 2rem;
+
+  background: v(site-bg, v(primary));
+  border-radius: v(site-radius);
+  box-shadow:
+    hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
+    hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
+  color: v(site-primary, v(bg));
+
+  transition: transform .65s $ease-out-cubic;
+
+  @media (--phone) {
+    &:hover, &:focus-within {
+      transform: scale(1.02);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (--tablet-7) {
+    --site-radius: .8rem;
+  }
+
+  @media (--tablet-10) {
+    --site-radius: 1.2rem;
+  }
+
+  // Shadow visible on hover and focus
+
+  &::after {
+    content: '';
+    @include position (absolute, 0 0 0 0);
+
+    pointer-events: none;
+
+    background: inherit;
+    border-radius: v(site-radius);
+    box-shadow:
+      hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
+      hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
+    opacity: 0;
+
+    transition: opacity .65s $ease-out-cubic;
+  }
+}
+
+.site__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
