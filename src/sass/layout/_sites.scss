@@ -1,0 +1,14 @@
+.sites {
+  display: grid;
+  grid-gap: 1.5rem;
+
+  @media (--tablet-7) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    align-items: stretch;
+  }
+
+  @media (--tablet-10) {
+    grid-gap: 2.8rem 3rem;
+  }
+}
