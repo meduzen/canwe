@@ -6,12 +6,16 @@
 
   background: v(site-bg, v(primary));
   border-radius: v(site-radius);
-  box-shadow:
-    hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
-    hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
   color: v(site-primary, v(bg));
 
   transition: transform .65s $ease-out-cubic;
+
+  // Light theme shadow
+  @media (--light) {
+    box-shadow:
+      hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
+      hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
+  }
 
   @media (--phone) {
     &:hover, &:focus-within {
@@ -31,10 +35,9 @@
     --site-radius: 1.2rem;
   }
 
-  // Shadow visible on hover and focus
+  // Light theme shadow, visible on hover and focus
 
   &::after {
-    content: '';
     @include position (absolute, 0 0 0 0);
 
     pointer-events: none;
@@ -47,6 +50,10 @@
     opacity: 0;
 
     transition: opacity .65s $ease-out-cubic;
+
+    @media (--light) {
+      content: '';
+    }
   }
 }
 
