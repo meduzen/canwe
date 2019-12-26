@@ -18,4 +18,11 @@
 
     font-size: 1.8rem;
   }
+
+  a {
+    position: relative;
+    z-index: 1;
+
+    color: inherit;
+  }
 }
