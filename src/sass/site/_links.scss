@@ -21,7 +21,7 @@
   color: v(site-accent, v(site-primary));
   opacity: .6;
 
-  transition: opacity .3s $ease-in-out-quad;
+  transition: opacity .3s $in-out-quad;
 
   &:hover,
   &:focus {

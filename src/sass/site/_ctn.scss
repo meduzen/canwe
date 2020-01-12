@@ -8,7 +8,7 @@
   border-radius: v(site-radius);
   color: v(site-primary, v(bg));
 
-  transition: transform .65s $ease-out-cubic;
+  transition: transform .65s $out-cubic;
 
   // Light theme shadow
   @media (--light) {
@@ -49,11 +49,7 @@
       hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
     opacity: 0;
 
-    transition: opacity .65s $ease-out-cubic;
-
-    @media (--light) {
-      content: '';
-    }
+    transition: opacity .65s $out-cubic;
   }
 }
 
