@@ -213,7 +213,7 @@ blockquote {
 //       opacity: 1;
 //       transform: translate3d(0, 0, 0);
 
-//       transition: .65s $ease-in-out-circ .05s;
+//       transition: .65s $in-out-circ .05s;
 //       transition-property: opacity, transform;
 
 //       &:hover {
@@ -305,7 +305,7 @@ address {
 a {
   color: v(primary);
 
-  // transition: color .15s $ease-in-out-quad;
+  // transition: color .15s $in-out-quad;
 
   // @media (--phone) {
   //   text-decoration: none;

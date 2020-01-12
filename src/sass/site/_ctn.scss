@@ -11,7 +11,7 @@
     hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
   color: v(site-primary, v(bg));
 
-  transition: transform .65s $ease-out-cubic;
+  transition: transform .65s $out-cubic;
 
   @media (--phone) {
     &:hover, &:focus-within {
@@ -46,7 +46,7 @@
       hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
     opacity: 0;
 
-    transition: opacity .65s $ease-out-cubic;
+    transition: opacity .65s $out-cubic;
   }
 }
 
