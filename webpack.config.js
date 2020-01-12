@@ -6,7 +6,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 // Path
 const path = require('path')
-function thePath(folder = '') { return path.resolve(__dirname, folder) }
+const thePath = (folder = '') => path.resolve(__dirname, folder)
 const assets = 'src'
 
 // Plugins: folder copy
@@ -68,9 +68,12 @@ config = {
         include: thePath(`${assets}/sass`),
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 2, sourceMap: true } },
+          { loader: 'css-loader', options: { importLoaders: 2, url: false, sourceMap: true } },
           { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: {
+            sassOptions: { outputStyle: 'expanded' },
+            sourceMap: true
+          }},
         ],
       },
       {
