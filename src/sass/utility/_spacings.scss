@@ -1,6 +1,6 @@
 .x-space {
-  padding-left: v(x-space);
-  padding-right: v(x-space);
+  padding-left: v(safe-left);
+  padding-right: v(safe-right);
 }
 
 .grid {
