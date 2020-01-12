@@ -95,11 +95,11 @@ html {
   width: 100%;
   height: 100%;
 
-  background: v(bg);
-  color: v(primary);
-
   font: 400 46.875% / #{$body-lh} $body-font;
   @include font-smoothing(on);
+
+  background: v(bg);
+  color: v(primary);
 
   @media (--phone) {
     font-size: 62.5%;
@@ -127,6 +127,7 @@ ul,
 ol {
   margin: 0;
   padding-left: 0;
+
   list-style-type: none;
 }
 
@@ -143,144 +144,144 @@ blockquote {
 
 /* IMAGES */
 
-figure {
-  margin: 0;
+// figure {
+//   margin: 0;
 
-  font-size: 0;
-}
+//   font-size: 0;
+// }
 
-img {
-  position: relative;
-  // z-index: 1;
-  display: block;
-  width: 100%;
-  height: auto;
+// img {
+//   position: relative;
+//   // z-index: 1;
+//   display: block;
+//   width: 100%;
+//   height: auto;
 
-  &::selection {
-    background: v(accent);
-  }
+//   &::selection {
+//     background: v(accent);
+//   }
 
-  // // Not loading images.
-  // &::after {
-  //   content: '\0274f' ' ' attr(alt);
-  //   @include position(absolute, 0 null null 0);
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   width: 100%;
-  //   height: 100%;
-  //   padding: 0 1em;
+//   // // Not loading images.
+//   // &::after {
+//   //   content: '\0274f' ' ' attr(alt);
+//   //   @include position(absolute, 0 null null 0);
+//   //   display: flex;
+//   //   justify-content: center;
+//   //   align-items: center;
+//   //   width: 100%;
+//   //   height: 100%;
+//   //   padding: 0 1em;
 
-  //   color: $jumbo;
-  //   background: lighten($jumbo, 21%);
+//   //   color: $jumbo;
+//   //   background: lighten($jumbo, 21%);
 
-  //   font-size: $body-size;
-  // }
-}
+//   //   font-size: $body-size;
+//   // }
+// }
 
 /* FORMS */
 
-fieldset {
-  margin: 0;
-  padding: 0;
+// fieldset {
+//   margin: 0;
+//   padding: 0;
 
-  border: none;
-}
+//   border: none;
+// }
 
-input {
-  padding: 0;
+// input {
+//   padding: 0;
 
-  appearance: none;
-  border-radius: 0; // Safari iOS
+//   appearance: none;
+//   border-radius: 0; // Safari iOS
 
-  line-height: inherit;
+//   line-height: inherit;
 
-  // Safari MacOS contact icon.
-  &::-webkit-contacts-auto-fill-button {
-    display: block !important;
-    transform: translate3d(100%, 0, 0);
+//   // Safari MacOS contact icon.
+//   &::-webkit-contacts-auto-fill-button {
+//     display: block !important;
+//     transform: translate3d(100%, 0, 0);
 
-    background-color: v(accent);
-    opacity: 0;
-  }
+//     background-color: v(accent);
+//     opacity: 0;
+//   }
 
-  &:focus,
-  &:hover {
+//   &:focus,
+//   &:hover {
 
-    &::-webkit-contacts-auto-fill-button {
-      display: block !important;
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+//     &::-webkit-contacts-auto-fill-button {
+//       display: block !important;
+//       opacity: 1;
+//       transform: translate3d(0, 0, 0);
 
-      transition: .65s $ease-in-out-circ .05s;
-      transition-property: opacity, transform;
+//       transition: .65s $ease-in-out-circ .05s;
+//       transition-property: opacity, transform;
 
-      &:hover {
-        transform: translate3d(0, 0, 0) scale(1.1);
+//       &:hover {
+//         transform: translate3d(0, 0, 0) scale(1.1);
 
-        transition-duration: .4s;
-        transition-delay: 0;
-      }
-    }
-  }
-}
+//         transition-duration: .4s;
+//         transition-delay: 0;
+//       }
+//     }
+//   }
+// }
 
-select {
-  padding-left: 0;
-  padding-right: 0;
-}
+// select {
+//   padding-left: 0;
+//   padding-right: 0;
+// }
 
-option {
-  padding-block-start: 0;
-  padding-inline-start: 0;
-  padding-block-end: 0;
-  padding-inline-end: 0;
-}
+// option {
+//   padding-block-start: 0;
+//   padding-inline-start: 0;
+//   padding-block-end: 0;
+//   padding-inline-end: 0;
+// }
 
-input,
-select {
+// input,
+// select {
 
-  // Autofill colors hack
-  &:-webkit-autofill {
-    -webkit-text-fill-color: v(primary);
-    background-color: transparent;
-    box-shadow: 0 0 0px 100px transparent inset;
-    transition: background-color 500000s ease-in-out 500000s;
+//   // Autofill colors hack
+//   &:-webkit-autofill {
+//     -webkit-text-fill-color: v(primary);
+//     background-color: transparent;
+//     box-shadow: 0 0 0px 100px transparent inset;
+//     transition: background-color 500000s ease-in-out 500000s;
 
-    &::selection {
-      -webkit-text-fill-color: v(accent);
-    }
-  }
-}
+//     &::selection {
+//       -webkit-text-fill-color: v(accent);
+//     }
+//   }
+// }
 
-input,
-button {
-  background: transparent;
-  border: none;
-  color: v(primary);
+// input,
+// button {
+//   background: transparent;
+//   border: none;
+//   color: v(primary);
 
-  font-weight: 500;
+//   font-weight: 500;
 
-  &:focus {
-    outline: none;
-  }
-}
+//   &:focus {
+//     outline: none;
+//   }
+// }
 
-textarea {
-  resize: none;
-}
+// textarea {
+//   resize: none;
+// }
 
-button {
-  padding: 0;
+// button {
+//   padding: 0;
 
-  cursor: pointer;
-  user-select: none;
-  -webkit-touch-callout: none;
+//   cursor: pointer;
+//   user-select: none;
+//   -webkit-touch-callout: none;
 
-  color: v(primary);
+//   color: v(primary);
 
-  * { pointer-events: none; }
-}
+//   * { pointer-events: none; }
+// }
 
 /* ABBREVIATIONS */
 
@@ -288,7 +289,6 @@ abbr[title] {
   &:not(:hover) {
     @media (--phone) {
       border: none;
-
       text-decoration: none;
     }
   }
