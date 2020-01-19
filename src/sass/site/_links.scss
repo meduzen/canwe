@@ -10,6 +10,9 @@
 .site__secondary-links {
   position: relative;
   z-index: 1;
+  margin-left: 1em;
+
+  align-items: stretch;
 }
 
 .site__link {
@@ -23,6 +26,10 @@
 
   transition: opacity .3s $in-out-quad;
 
+  @include all-but(1) {
+    margin-left: .25em;
+  }
+
   &:hover,
   &:focus {
     opacity: 1;
@@ -30,8 +37,39 @@
 }
 
 .site__link--main {
+  flex: 0 1 auto;
+
+  justify-content: flex-start;
+
+  overflow-x: hidden;
+
   &::after {
     content: '';
     @include position(absolute, 0 0 0 0);
+    z-index: 0;
+  }
+}
+
+.site__link__inner {
+  position: relative;
+  z-index: 1;
+
+
+  overflow-x: scroll;
+
+  @supports (scrollbar-width: thin) {
+    padding-bottom: .8rem; // let soom room for the scrollbar
+
+    scrollbar-color: v(site-accent, v(site-primary));
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar {
+    height: .4rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: v(site-accent, v(site-primary));
+    border-radius: .2rem;
   }
 }
