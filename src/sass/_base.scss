@@ -87,8 +87,8 @@ $global-w: (
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   @media (--reduced-motion) {
-    transition: 0.001s !important;
-    animation: 0.001s !important;
+    transition: .001s !important;
+    animation: .001s !important;
   }
 }
 
@@ -104,8 +104,7 @@ $global-w: (
 /* HTML & BODY */
 
 html {
-  width: 100%;
-  height: 100%;
+  size: 100% 100%;
 
   font: 400 46.875% / #{$body-lh} $body-font;
   @include font-smoothing(on);
@@ -119,8 +118,7 @@ html {
 }
 
 body {
-  width: 100%;
-  height: 100%;
+  size: 100% 100%;
   min-height: 100%;
 
   display: grid;
@@ -166,8 +164,7 @@ blockquote {
 //   position: relative;
 //   // z-index: 1;
 //   display: block;
-//   width: 100%;
-//   height: auto;
+//   size: 100% auto;
 
 //   &::selection {
 //     background: v(accent);
@@ -180,8 +177,7 @@ blockquote {
 //   //   display: flex;
 //   //   justify-content: center;
 //   //   align-items: center;
-//   //   width: 100%;
-//   //   height: 100%;
+//   //   size: 100% 100%;
 //   //   padding: 0 1em;
 
 //   //   color: $jumbo;
