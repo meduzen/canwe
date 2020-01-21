@@ -1,7 +1,6 @@
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  size: 1px 1px;
   margin: -1px;
   padding: 0;
 
