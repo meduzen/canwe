@@ -1,12 +1,12 @@
-Safari >= 11 # let
+ios_saf >= 11.3
+Safari >= 11.3
 
-Samsung >= 5 # arrow functions
+Samsung >= 9
 
-Firefox >= 55
+Firefox >= 60
 
-Chrome >= 55
-and_chr >= 55
+Chrome >= 63
+and_chr >= 63
 and_uc >= 11.8
 
-Opera >= 50
 Edge >= 17
