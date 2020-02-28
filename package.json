@@ -36,7 +36,7 @@
         "node-sass": "^4.13.1",
         "postcss-loader": "^3.0",
         "postcss-preset-env": "^6.7",
-        "postcss-safe-area": "0.0.1",
+        "postcss-safe-area": "0.0.2",
         "postcss-short-size": "^4.0",
         "sass-loader": "^8.0",
         "v.scss": "^1.1",
