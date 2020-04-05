@@ -8,6 +8,10 @@
   border-radius: v(site-radius);
   color: v(site-primary, v(bg));
 
+  // Fix Chrome 80 visual glitch on hover.
+  // https://github.com/meduzen/canwe/issues/17
+  transform: scale(.999);
+
   transition: transform .65s $out-cubic;
 
   // Light theme shadow
