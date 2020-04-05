@@ -4,6 +4,7 @@
   position: relative;
   padding: 2rem;
 
+  background: v(site-bg, v(primary));
   border-radius: v(site-radius);
   color: v(site-primary, v(bg));
 
@@ -34,26 +35,14 @@
     --site-radius: 1.2rem;
   }
 
-  &::before,
+  // Light theme shadow, visible on hover and focus
+
   &::after {
     @include position (absolute, 0);
 
     pointer-events: none;
+
     border-radius: v(site-radius);
-  }
-
-  // Background color
-
-  &::before {
-    content: '';
-    z-index: -1;
-
-    background: v(site-bg, v(primary));
-  }
-
-  // Light theme shadow, visible on hover and focus
-
-  &::after {
     box-shadow:
       hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
       hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
