@@ -1,15 +1,15 @@
 .sites {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-gap: 1.5rem;
+  gap: 1.5rem;
 
   @media (--tablet-7) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-gap: 2rem;
+    gap: 2rem;
     align-items: stretch;
   }
 
   @media (--tablet-10) {
-    grid-gap: 2.8rem 3rem;
+    gap: 2.8rem 3rem;
   }
 }
