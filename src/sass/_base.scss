@@ -173,7 +173,9 @@ blockquote {
 //   // // Not loading images.
 //   // &::after {
 //   //   content: '\0274f' ' ' attr(alt);
-//   //   @include position(absolute, 0 null null 0);
+//   //   position: absolute;
+//   //   top: 0;
+//   //   left: 0;
 //   //   display: flex;
 //   //   justify-content: center;
 //   //   align-items: center;

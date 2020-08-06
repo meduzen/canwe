@@ -42,7 +42,8 @@
   // Light theme shadow, visible on hover and focus
 
   &::after {
-    @include position (absolute, 0);
+    position: absolute;
+    inset: 0;
 
     pointer-events: none;
 
