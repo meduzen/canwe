@@ -9,7 +9,8 @@ const path = require('path')
 const thePath = (folder = '') => path.resolve(__dirname, folder)
 const assets = 'src'
 
-// Plugins: folder copy
+// plugins: folder cleaning
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // Plugins: reload & cli output
@@ -91,20 +92,12 @@ config = {
 
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].css' }),
-    new CopyWebpackPlugin([
-      {
-        from: `${assets}/fonts/`,
-        to: thePath('public/fonts'),
-      },
-      {
-        from: `${assets}/img/`,
-        to: thePath('public/img'),
-      },
-      {
-        from: `${assets}/manifest/`,
-        to: thePath('public'),
-      },
-    ]),
+    new CopyWebpackPlugin({ patterns: [
+      { from: `${assets}/fonts/`, to: thePath('public/fonts') },
+      { from: `${assets}/img/`, to: thePath('public/img') },
+      { from: `${assets}/manifest/`, to: thePath('public') },
+    ]}),
+    // new CleanWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new NotifierPlugin({ title: 'CSS', ...NotifierPluginOptions }),
     new BrowserSyncPlugin({
