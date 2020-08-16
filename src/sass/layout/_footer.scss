@@ -6,3 +6,11 @@
     padding-bottom: #{'max(var(--safe-bottom), 3rem)'};
   }
 }
+
+.footer__item {
+  @include all-but(last) {
+    &::after {
+      content: '•';
+    }
+  }
+}

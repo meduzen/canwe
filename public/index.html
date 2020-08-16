@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
     <meta charset="utf-8">
     <title>Can We</title>
@@ -415,11 +415,24 @@
 
 <footer class="footer | grid x-space">
     <p>
-        Logo font: <a class="accent" href="https://github.com/SorkinType/Calistoga"><em>Calistoga</em></a> (by <a href="https://www.behance.net/YvonneSchuettler">Yvonne&nbsp;Schüttler</a> and <a href="http://sorkintype.com/">Eben&nbsp;Sorkin</a>)
-        •
-        Made&nbsp;by&nbsp;<a class="accent" href="https://mehdi.cc">Mehdi</a>
-        •
-        <a class="accent" href="https://github.com/meduzen/canwe">Code&nbsp;and&nbsp;issues</a>
+        <span class="footer__item" itemscope itemtype="http://schema.org/SoftwareSourceCode">
+            <a class="accent" href="https://github.com/meduzen/canwe" itemprop="coderepository">Code and issues</a>
+        </span>
+        <span class="footer__item" itemprop="maintainer" itemscope itemtype="http://schema.org/Person">
+            Made by
+            <a class="accent" href="https://mehdi.cc" itemprop="url" rel="author"><span itemprop="name">Mehdi&nbsp;Merah</span></a>
+        </span>
+        <span class="footer__item" itemscope itemtype="http://schema.org/CreativeWork">Logo font:
+            <a class="accent" href="https://github.com/SorkinType/Calistoga" itemprop="url"><em itemprop="name">Calistoga</em></a>
+            by
+            <span itemprop="creator" itemscope itemtype="http://schema.org/Person">
+                <a href="https://www.behance.net/YvonneSchuettler" itemprop="url"><span itemprop="name">Yvonne&nbsp;Schüttler</span>
+            </a></span>
+            and
+            <span itemprop="creator" itemscope itemtype="http://schema.org/Person">
+                <a href="http://sorkintype.com" itemprop="url"><span itemprop="name">Eben&nbsp;Sorkin</span></a>.
+            </span>
+        </span>
     </p>
     <!-- </ul> -->
 </footer>
