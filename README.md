@@ -1,6 +1,6 @@
 # Can We
 
-A directory of websites focused on browsers data usage.
+A collection of websites focused on browsers usage and features.
 
 ## I’d like to propose a _SuperCanSomething website_
 
