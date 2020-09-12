@@ -19,7 +19,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const NotifierPlugin = require('webpack-build-notifier')
 
 // Plugins: CSS & JS
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // Notifications options
 const NotifierPluginOptions = {
@@ -72,6 +72,7 @@ config = {
           { loader: 'css-loader', options: { importLoaders: 2, url: false, sourceMap: true } },
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: {
+            implementation: require('node-sass'),
             sassOptions: { outputStyle: 'expanded' },
             sourceMap: true
           }},
@@ -111,6 +112,7 @@ config = {
         'src/**/*.*',
         'public/**/*.*',
       ],
+    }, {
       injectCss: true, // will work once PR merged: https://github.com/Va1/browser-sync-webpack-plugin/pull/79
     }),
   ],
