@@ -12,8 +12,16 @@
   @media (--tablet-7) {
     margin-top: 7rem;
   }
+
+  @media (--large-scale) {
+    margin-top: 11rem;
+  }
 }
 
 .section__title {
   margin-bottom: 1em;
+
+  @media (--large-scale) {
+    margin-bottom: 1.5em;
+  }
 }
