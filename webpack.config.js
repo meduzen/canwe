@@ -1,24 +1,25 @@
 const webpack = require('webpack')
 
-// .env
+// env
 const env = require('dotenv').config().parsed
 const isProd = process.env.NODE_ENV === 'production'
+const mode = isProd ? 'production' : 'development'
 
-// Path
+// path
 const path = require('path')
 const thePath = (folder = '') => path.resolve(__dirname, folder)
 const assets = 'src'
 
 // plugins: folder cleaning
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
-// Plugins: reload & cli output
+// plugins: reload & cli output
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const NotifierPlugin = require('webpack-build-notifier')
 
-// Plugins: CSS & JS
+// plugins: CSS & JS
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // Notifications options
@@ -38,11 +39,11 @@ const NotifierPluginOptions = {
 let browserSyncHttps = false
 
 if (
-  process.env.VALET_HTTPS === 'true'
-  && typeof(process.env.VALET_USER) === 'string'
-  && process.env.VALET_CERTIFICATES_PATH
+  env.VALET_HTTPS === 'true'
+  && typeof(env.VALET_USER) === 'string'
+  && env.VALET_CERTIFICATES_PATH
 ) {
-  let certificatesPath = `/Users/${process.env.VALET_USER}/${process.env.VALET_CERTIFICATES_PATH}/${process.env.MIX_BS_LOCAL_URL.substring(8)}`
+  let certificatesPath = `/Users/${env.VALET_USER}/${env.VALET_CERTIFICATES_PATH}/${env.MIX_BS_LOCAL_URL.substring(8)}`
 
   browserSyncHttps = {
     key: `${certificatesPath}.key`,
@@ -81,33 +82,28 @@ config = {
       {
         test: /\.(jpg|png)$/,
         include: thePath(`${assets}/img`),
-        use: [
-          {
-            loader: 'file-loader',
-            options: {},
-          },
-        ],
+        type: 'asset/resource',
       },
     ]
   },
 
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].css' }),
-    new CopyWebpackPlugin({ patterns: [
+    new CopyPlugin({ patterns: [
       { from: `${assets}/fonts/`, to: thePath('public/fonts') },
       { from: `${assets}/img/`, to: thePath('public/img') },
       { from: `${assets}/manifest/`, to: thePath('public') },
     ]}),
     // new CleanWebpackPlugin(),
-    new FriendlyErrorsWebpackPlugin(),
+    new FriendlyErrorsPlugin(),
     new NotifierPlugin({ title: 'CSS', ...NotifierPluginOptions }),
     new BrowserSyncPlugin({
       https: browserSyncHttps,
-      host: process.env.MIX_BS_HOST,
-      proxy: process.env.MIX_BS_LOCAL_URL,
-      browser: process.env.MIX_BS_BROWSER,
-      open: process.env.MIX_BS_OPEN,
-      logPrefix: process.env.APP_NAME,
+      host: env.MIX_BS_HOST,
+      proxy: env.MIX_BS_LOCAL_URL,
+      browser: env.MIX_BS_BROWSER,
+      open: env.MIX_BS_OPEN,
+      logPrefix: env.APP_NAME,
       files: [
         'src/**/*.*',
         'public/**/*.*',
@@ -117,7 +113,7 @@ config = {
     }),
   ],
 
-  mode: process.env.NODE_ENV,
+  mode,
 
   devtool: isProd ? 'source-map' : 'cheap-module-source-map',
 
