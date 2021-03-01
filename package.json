@@ -5,41 +5,39 @@
     },
     "scripts": {
         "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=webpack.config.js",
+        "development": "node_modules/webpack/bin/webpack.js --node-env=development --progress --config=webpack.config.js",
         "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=webpack.config.js",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --config=webpack.config.js"
+        "production": "node_modules/webpack/bin/webpack.js --node-env=production --config=webpack.config.js"
     },
     "dependencies": {
         "normalize.css": "^8.0"
     },
     "devDependencies": {
-        "browser-sync": "^2.26",
+        "@soda/friendly-errors-webpack-plugin": "^1.8.0",
+        "browser-sync": "^2.26.14",
         "browser-sync-webpack-plugin": "^2.3",
         "clean-webpack-plugin": "^3.0",
         "copy-webpack-plugin": "^7",
-        "cross-env": "^7.0",
         "css-loader": "^5",
         "cssnano": "^4.1",
         "dotenv": "^8.2",
-        "double-dash.scss": "^0.7",
+        "double-dash.scss": "^0.7.1",
         "easings.scss": "^0.3",
         "family.scss": "^1.0",
-        "friendly-errors-webpack-plugin": "^1.7",
-        "hsl.scss": "^1.0",
-        "mini-css-extract-plugin": "^1.3",
-        "node-sass": "^4.14",
-        "postcss": "^8.2",
-        "postcss-loader": "^4.1",
+        "hsl.scss": "^1.0.1",
+        "mini-css-extract-plugin": "^1.3.5",
+        "node-sass": "^5",
+        "postcss": "^8.2.4",
+        "postcss-loader": "^5",
         "postcss-preset-env": "^6.7",
         "postcss-safe-area": "0.0.2",
         "postcss-short-size": "^4.0",
-        "sass-loader": "^10.1",
-        "v.scss": "^1.2",
-        "webpack": "^5.11",
+        "sass-loader": "^11",
+        "v.scss": "^1.2.1",
+        "webpack": "^5.21.1",
         "webpack-build-notifier": "^2.1",
-        "webpack-cli": "^4.3"
+        "webpack-cli": "^4.5",
+        "webpack-nano": "^1.1.1"
     }
 }

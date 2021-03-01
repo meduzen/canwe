@@ -1,5 +1,3 @@
-const webpack = require('webpack')
-
 // env
 const env = require('dotenv').config().parsed
 const isProd = process.env.NODE_ENV === 'production'
@@ -16,14 +14,14 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 // plugins: reload & cli output
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const FriendlyErrorsPlugin = require('@soda/friendly-errors-webpack-plugin')
 const NotifierPlugin = require('webpack-build-notifier')
 
 // plugins: CSS & JS
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // Notifications options
-const NotifierPluginOptions = {
+const notifierPluginOptions = {
   logo: thePath('src/app/android-chrome-192x192.png'),
   sound: false,
   notifyOptions: { timeout: 2 },
@@ -61,6 +59,7 @@ config = {
 
   output: {
     path: thePath('public'),
+    publicPath: '/', // currently required (https://github.com/shellscape/webpack-manifest-plugin/issues/229)
   },
 
   module: {
@@ -88,29 +87,12 @@ config = {
   },
 
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].css' }),
-    new CopyPlugin({ patterns: [
-      { from: `${assets}/fonts/`, to: thePath('public/fonts') },
-      { from: `${assets}/img/`, to: thePath('public/img') },
-      { from: `${assets}/manifest/`, to: thePath('public') },
-    ]}),
-    // new CleanWebpackPlugin(),
-    new FriendlyErrorsPlugin(),
-    new NotifierPlugin({ title: 'CSS', ...NotifierPluginOptions }),
-    new BrowserSyncPlugin({
-      https: browserSyncHttps,
-      host: env.MIX_BS_HOST,
-      proxy: env.MIX_BS_LOCAL_URL,
-      browser: env.MIX_BS_BROWSER,
-      open: env.MIX_BS_OPEN,
-      logPrefix: env.APP_NAME,
-      files: [
-        'src/**/*.*',
-        'public/**/*.*',
-      ],
-    }, {
-      injectCss: true, // will work once PR merged: https://github.com/Va1/browser-sync-webpack-plugin/pull/79
+    new MiniCssExtractPlugin({ filename: '[name].css?id=[fullhash]' }),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!index.html'],
     }),
+    new FriendlyErrorsPlugin(),
+    new NotifierPlugin({ title: 'CSS', ...notifierPluginOptions }),
   ],
 
   mode,
@@ -126,13 +108,39 @@ config = {
   },
 
   stats: {
-    children: false,
     entrypoints: false,
-    excludeAssets: /^((?!\.css$).)*$/,
-    hash: false,
+    excludeAssets: [
+      /.*\.(ico|jpg|png|svg|webmanifest|xml)$/, // Web Manifest and icons
+      /.*\.woff2/, // fonts
+      /.*\.js/, // https://github.com/webpack-contrib/mini-css-extract-plugin/issues/85
+    ],
     modules: false,
     version: false,
   },
 }
+
+/* Others without entry point, so we push them to the previous config. */
+
+config.plugins.push(
+  new CopyPlugin({ patterns: [
+    { from: `${assets}/fonts/`, to: thePath('public/fonts') },
+    { from: `${assets}/img/`, to: thePath('public/img') },
+    { from: `${assets}/manifest/`, to: thePath('public') },
+  ]}),
+  new BrowserSyncPlugin({
+    https: browserSyncHttps,
+    host: env.MIX_BS_HOST,
+    proxy: env.MIX_BS_LOCAL_URL,
+    browser: env.MIX_BS_BROWSER,
+    open: env.MIX_BS_OPEN,
+    logPrefix: env.APP_NAME,
+    files: [
+      'public/**/*.*',
+      'src/**/*.*',
+    ],
+  }, {
+    injectCss: true, // should work once PR merged: https://github.com/Va1/browser-sync-webpack-plugin/pull/79
+  }),
+)
 
 module.exports = [config]
