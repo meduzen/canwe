@@ -4,15 +4,16 @@
   @media (--phone) {
     display: flex;
     justify-content: space-between;
+    gap: 1em;
   }
 }
 
 .site__secondary-links {
   position: relative;
   z-index: 1;
-  margin-left: 1em;
 
   align-items: stretch;
+  gap: .25em;
 }
 
 .site__link {
@@ -25,10 +26,6 @@
   opacity: .6;
 
   transition: opacity .3s $in-out-quad;
-
-  @include all-but(1) {
-    margin-left: .25em;
-  }
 
   &:hover,
   &:focus {
