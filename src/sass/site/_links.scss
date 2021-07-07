@@ -41,6 +41,10 @@
 
   overflow-x: hidden;
 
+  @media (--to-phone) {
+    display: block;
+  }
+
   &::after {
     content: '';
     position: absolute;
