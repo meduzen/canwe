@@ -5,6 +5,12 @@
     url('/fonts/baloo/baloo.woff2')
     format('woff2');
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-weight: 700;
+
+  /**
+   * Instead of `swap`, we use `block` in order to wait longer before swapping
+   * the fonts because Baloo has very different metrics then the fallbacks.
+   * This way, the chances that some layout shifts occure are minimized.
+   */
+  font-display: block;
 }
