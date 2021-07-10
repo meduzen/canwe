@@ -12,6 +12,10 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  @media (--large-scale) {
+    padding-top: 6rem;
+  }
 }
 
 .canwe__logo {

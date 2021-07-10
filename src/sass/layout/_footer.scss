@@ -1,9 +1,16 @@
 .footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  --footer-padding-y: 3rem;
+  padding-top: v(footer-padding-y);
+  padding-bottom: v(footer-padding-y);
 
   @supports (top: #{'max(0px)'}) {
-    padding-bottom: #{'max(var(--safe-bottom), 3rem)'};
+    padding-bottom: #{'max(var(--safe-bottom), var(--footer-padding-y))'};
+  }
+
+  @media (--large-scale) {
+    --footer-padding-y: 6rem;
+
+    text-align: center;
   }
 }
 

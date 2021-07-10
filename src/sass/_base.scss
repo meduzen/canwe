@@ -3,6 +3,7 @@ $global-w: (
   'tablet-7': 37.5em, // 600px
   'tablet-10': 52.5em, // 840px
   'grid': 80em, // 1280px (1160 + 2 * x-space)
+  'large-scale': 100em, // 1600px
 );
 
 @include --w($global-w);
@@ -114,6 +115,10 @@ html {
 
   @media (--phone) {
     font-size: 62.5%;
+  }
+
+  @media (--large-scale) {
+    font-size: calc(62.5% + .1vw);
   }
 }
 

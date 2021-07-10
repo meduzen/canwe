@@ -10,4 +10,8 @@
     margin-right: auto;
     margin-left: auto;
   }
+
+  @media (--large-scale) {
+    max-width: 180rem;
+  }
 }
