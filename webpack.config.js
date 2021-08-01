@@ -23,8 +23,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // Notifications options
 const notifierPluginOptions = {
   logo: thePath('src/app/android-chrome-192x192.png'),
+  formatSuccess: () => 'Yes we can ✊',
   sound: false,
-  notifyOptions: { timeout: 2 },
+  notifyOptions: { timeout: 4 },
 
   // Errors/warnings format. Example: “3 errors – resources/sass/oh-no.scss”
   messageFormatter: (error, filepath, status, errorCount) => `
