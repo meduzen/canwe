@@ -1,11 +1,9 @@
 .site {
-  --site-radius: .5rem;
-
   position: relative;
   padding: 2rem;
 
   background: v(site-bg, v(primary));
-  border-radius: v(site-radius);
+  border-radius: v(card-radius);
   color: v(site-primary, v(bg));
 
   // Fix Chrome 80 visual glitch on hover.
@@ -31,14 +29,6 @@
     }
   }
 
-  @media (--tablet-7) {
-    --site-radius: .8rem;
-  }
-
-  @media (--tablet-10) {
-    --site-radius: 1.2rem;
-  }
-
   // Light theme shadow, visible on hover and focus
 
   &::after {
@@ -47,7 +37,7 @@
 
     pointer-events: none;
 
-    border-radius: v(site-radius);
+    border-radius: v(card-radius);
     box-shadow:
       hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
       hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;

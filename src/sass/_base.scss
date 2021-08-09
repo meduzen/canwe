@@ -77,6 +77,8 @@ $global-w: (
   }
 
   --card-radius: .5rem;
+  @media (--tablet-7) { --card-radius: .8rem; }
+  @media (--tablet-10) { --card-radius: 1.2rem; }
 }
 
 *,
