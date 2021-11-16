@@ -61,7 +61,7 @@
   overflow-x: scroll;
 
   @supports (scrollbar-width: thin) {
-    padding-bottom: .8rem; // let soom room for the scrollbar
+    padding-bottom: .8rem; // let some room for the scrollbar
 
     scrollbar-color: v(site-accent, v(site-primary));
     scrollbar-width: thin;

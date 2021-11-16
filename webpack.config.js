@@ -22,7 +22,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // Notifications options
 const notifierPluginOptions = {
-  logo: thePath('src/app/android-chrome-192x192.png'),
+  logo: thePath('src/manifest/apple-touch-icon.png'),
   formatSuccess: () => 'Yes we can ✊',
   sound: false,
   notifyOptions: { timeout: 4 },
@@ -73,7 +73,11 @@ config = {
         include: thePath(`${assets}/sass`),
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 2, url: false, sourceMap: true } },
+          { loader: 'css-loader', options: {
+            importLoaders: 2,
+            url: false,
+            sourceMap: true
+          } },
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: {
             implementation: require('node-sass'),
