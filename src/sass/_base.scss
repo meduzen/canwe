@@ -2,7 +2,7 @@ $global-w: (
   'phone': 20em, // 320px
   'tablet-7': 37.5em, // 600px
   'tablet-10': 52.5em, // 840px
-  'grid': 80em, // 1280px (1160 + 2 * x-space)
+  'grid': 65em, // 1040px
 );
 
 @include --w($global-w);
