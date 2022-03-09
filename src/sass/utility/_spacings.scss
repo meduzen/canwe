@@ -1,13 +1,11 @@
-.x-space {
-  padding-left: v(safe-left);
-  padding-right: v(safe-right);
-}
+$grid-max-width: 104rem;
 
+// Each horizontal margin = 1/2 viewport width minus 1/2 content.
 .grid {
-  @media (--grid) {
-    width: 100%;
-    max-width: 116rem;
-    margin-right: auto;
-    margin-left: auto;
-  }
+  --margin-size: calc((100% - #{$grid-max-width}) / 2);
+
+  margin-inline:
+    unquote('max(var(--margin-size), var(--safe-left))')
+    unquote('max(var(--margin-size), var(--safe-right))')
+  ;
 }
