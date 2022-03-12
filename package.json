@@ -13,7 +13,7 @@
     },
     "devDependencies": {
         "cssnano": "^5",
-        "dotenv": "^14",
+        "dotenv": "^16",
         "double-dash.scss": "^0.8",
         "easings.scss": "^0.3",
         "family.scss": "^1.0",
