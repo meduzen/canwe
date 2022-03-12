@@ -3,4 +3,6 @@ $easings:
   'out-cubic',
   // 'in-out-circ',
 ;
-@import '~easings.scss';
+
+// @import '~easings.scss';
+@import 'easings.scss/src/easings.scss';
