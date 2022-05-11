@@ -1,4 +1,8 @@
 .skip-link {
+  position: absolute;
+  top: 0;
+  justify-self: center;
+
   margin: 0 auto;
   padding: 1.2em;
 
@@ -17,7 +21,7 @@
     transition: opacity .3s $in-out-quad;
     transition-property: opacity, transform;
 
-    // Dark theme uses the default focus ring, light tgeme uses a box shadow.
+    // Dark theme uses the default focus ring, light theme uses a box shadow.
     @media (--light) {
       outline: none;
     }
