@@ -1,10 +1,10 @@
-and_chr >= 64
-Chrome >= 64
-Edge >= 79
+and_chr >= 75
+Chrome >= 75
+Edge >= 92
 
-Firefox >= 64
+Firefox >= 91
 
-Opera >= 64
+Opera >= 77
 
 ios_saf >= 11.3
 Safari >= 11.3
