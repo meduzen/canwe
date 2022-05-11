@@ -36,6 +36,7 @@
 
 .site__link--main {
   flex: 0 1 auto;
+  padding-bottom: .2rem;
 
   justify-content: flex-start;
 
@@ -57,22 +58,11 @@
   position: relative;
   z-index: 1;
 
+  overflow-x: auto;
 
-  overflow-x: scroll;
-
-  @supports (scrollbar-width: thin) {
-    padding-bottom: .8rem; // let some room for the scrollbar
-
-    scrollbar-color: v(site-accent, v(site-primary));
-    scrollbar-width: thin;
-  }
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
-    height: .4rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: v(site-accent, v(site-primary));
-    border-radius: .2rem;
+    height: 0;
   }
 }
