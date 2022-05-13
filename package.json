@@ -6,12 +6,14 @@
     "scripts": {
         "dev": "vite --mode=development",
         "build": "vite build --mode=production",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "test": "playwright test"
     },
     "dependencies": {
         "normalize.css": "^8.0"
     },
     "devDependencies": {
+        "@playwright/test": "^1.22.0",
         "cssnano": "^5",
         "dotenv": "^16",
         "double-dash.scss": "^0.8",

@@ -19,3 +19,7 @@ All good `public/index.html` editing.
 - _(local)_ `npm run dev` or _(prod)_ `npm run build`
 
 Websites colors are CSS custom properties in [`/src/sass/site/_colors.scss`](/src/sass/site/_colors.scss)
+
+### Tests
+
+Tests use [Playwright](https://playwright.dev) and can be run with `npm test`.
