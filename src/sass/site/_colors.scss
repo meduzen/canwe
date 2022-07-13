@@ -22,20 +22,6 @@
   --site-accent: hsl(0, 0%, 100%);
 }
 
-.edge-status {
-  --site-primary: hsla(0, 0%, 100%, .85);
-  --site-bg: hsl(217, 45%, 25%);
-  --site-accent: hsl(207, 100%, 65%);
-}
-
-.firefox-status {
-  --site-primary: hsla(0, 0%, 100%, .85);
-  --site-accent: hsl(0, 0%, 100%);
-
-  // https://mozilla.design/firefox/color/
-  --site-bg: linear-gradient(to right, hsl(21, 99%, 61%) 0%, hsl(349, 100%, 62%) 100%);
-}
-
 .html5accessibility {
   --site-primary: hsl(0, 0%, 20%);
   --site-bg: hsl(0, 0%, 97%);
