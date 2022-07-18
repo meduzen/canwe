@@ -1,23 +1,13 @@
-// Abstract (mixins and functions)
-@import 'family.scss';
-@import 'hsl.scss';
-@import 'v.scss';
-@import 'double-dash.scss';
-@import 'abstract/abstract';
-
-// Variables
-@import 'variables/variables';
-
-// Browser styles and fonts
-@import 'fonts/fonts';
-@import 'custom-normalize';
-@import 'base';
+// Base, with fonts incorporated
+@use 'fonts';
+@use 'custom-normalize';
+@use 'base';
 
 // Utility
-@import 'utility/utility';
+@use 'utility';
 
 // Layout
-@import 'layout/layout';
+@use 'layout';
 
 // Sites
-@import 'site/site';
+@use 'site';

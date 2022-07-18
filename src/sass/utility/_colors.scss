@@ -1,3 +1,5 @@
+@use '../abstract' as *;
+
 .accent {
   color: v(accent);
 }

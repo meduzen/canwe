@@ -1,3 +1,8 @@
+// Abstract (mixins and functions)
+@use 'double-dash.scss' as mq;
+@use './abstract' as *;
+@use './variables' as *;
+
 $global-w: (
   'phone': 20em, // 320px
   'tablet-7': 37.5em, // 600px
@@ -5,7 +10,7 @@ $global-w: (
   'grid': 65em, // 1040px
 );
 
-@include --w($global-w);
+@include mq.w($global-w);
 
 :root {
 

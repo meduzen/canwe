@@ -1,3 +1,6 @@
+@use '../abstract' as *;
+@use '../variables' as *;
+
 .site {
   position: relative;
   padding: 2rem;

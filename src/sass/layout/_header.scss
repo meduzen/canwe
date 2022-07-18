@@ -1,3 +1,6 @@
+@use '../abstract' as *;
+@use '../variables' as *;
+
 .skip-link {
   position: absolute;
   top: 0;
