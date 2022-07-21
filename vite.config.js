@@ -39,6 +39,6 @@ export default defineConfig({
   },
 
   server: {
-    open: env.BROWSER_OPEN == 'true',
+    open: env?.BROWSER_OPEN == 'true',
   },
 })
