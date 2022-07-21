@@ -35,8 +35,11 @@ jobs:
         NODE_ENV: production
     - name: Install Playwright
       run: npx playwright install --with-deps
+    - name: Preview website
+      run: npm run preview
     - name: Test
       run: npm test
       env:
+        PW_BASE_URL: http://127.0.0.1:4173/
         # PW_BASE_URL: ${{ github.event.deployment_status.target_url }}
-        PW_BASE_URL: ${{ steps.step_name.outputs.url_output }}
+        # PW_BASE_URL: ${{ steps.step_name.outputs.url_output }}
