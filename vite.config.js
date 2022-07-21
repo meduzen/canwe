@@ -3,7 +3,8 @@ import { resolve } from 'path'
 
 // env
 const env = require('dotenv').config().parsed
-const isProd = env.NODE_ENV === 'production'
+console.log(env)
+// const isProd = env.NODE_ENV === 'production'
 
 let outDir = env.APP_BUILD_DIR || 'public'
 
