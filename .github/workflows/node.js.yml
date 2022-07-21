@@ -29,4 +29,5 @@ jobs:
     - run: npx playwright install --with-deps
     - name: Test
     - run: npm test
-      env: PW_BASE_URL: ${{ github.event.deployment_status.target_url }}
+      env:
+        PW_BASE_URL: ${{ github.event.deployment_status.target_url }}
