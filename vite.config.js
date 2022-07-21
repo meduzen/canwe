@@ -3,10 +3,9 @@ import { resolve } from 'path'
 
 // env
 const env = require('dotenv').config().parsed
-console.log(env)
 // const isProd = env.NODE_ENV === 'production'
 
-let outDir = env.APP_BUILD_DIR || 'public'
+let outDir = env?.APP_BUILD_DIR || 'public'
 
 // Prevents to output app files outside of the project root.
 if (outDir.includes('../')) {
