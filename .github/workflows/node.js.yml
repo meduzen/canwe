@@ -8,10 +8,6 @@ on:
     branches: [ main ]
 
 jobs:
-  environment:
-    name: production
-    url: ${{ steps.step_id.outputs.url_output }}
-
   build:
 
     runs-on: ubuntu-latest
