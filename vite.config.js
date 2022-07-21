@@ -1,9 +1,15 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
-// env
+/**
+ * Get .env file entries.
+ *
+ * The usage in the script is always conditional (`env?.entry`) to prevent this
+ * script to crash when .env is missing. Currently, this is only needed when
+ * running a GitHub action. This is’nt an elegant solution, but it works.
+ */
 const env = require('dotenv').config().parsed
-// const isProd = env.NODE_ENV === 'production'
+const isProd = env?.NODE_ENV === 'production'
 
 let outDir = env?.APP_BUILD_DIR || 'public'
 
