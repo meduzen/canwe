@@ -74,7 +74,7 @@ $global-w: (
   --safe-bottom: var(--safe-area-bottom);
   --safe-left: var(--safe-area-left, var(--x-space));
 
-  @supports (top: #{'max(0px)'}) {
+  @supports (top: max(0px)) {
     --safe-area-top: env(safe-area-inset-top, 0);
     --safe-area-right: max(env(safe-area-inset-right), var(--x-space));
     --safe-area-bottom: env(safe-area-inset-bottom, 0);

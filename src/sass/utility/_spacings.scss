@@ -5,7 +5,7 @@ $grid-max-width: 104rem;
   --margin-size: calc((100% - #{$grid-max-width}) / 2);
 
   margin-inline:
-    unquote('max(var(--margin-size), var(--safe-left))')
-    unquote('max(var(--margin-size), var(--safe-right))')
+    max(var(--margin-size), var(--safe-left))
+    max(var(--margin-size), var(--safe-right))
   ;
 }

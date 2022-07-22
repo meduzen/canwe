@@ -35,21 +35,20 @@
   // Light theme shadow, visible on hover and focus
 
   &::after {
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    border-radius: v(card-radius);
-    box-shadow:
-      hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
-      hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
-    opacity: 0;
-
-    transition: opacity .65s $out-cubic;
-
     @media (--light) {
       content: '';
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      border-radius: v(card-radius);
+      box-shadow:
+        hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
+        hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
+      opacity: 0;
+
+      transition: opacity .65s $out-cubic;
     }
   }
 }
