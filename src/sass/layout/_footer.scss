@@ -1,9 +1,11 @@
+@use '../abstract' as *;
+
 .footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
 
-  @supports (top: #{'max(0px)'}) {
-    padding-bottom: #{'max(var(--safe-bottom), 3rem)'};
+  @supports (top: max(0px)) {
+    padding-bottom: max(var(--safe-bottom), 3rem);
   }
 }
 

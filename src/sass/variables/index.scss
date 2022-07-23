@@ -1,0 +1,10 @@
+$easings:
+  'in-out-quad',
+  'in-out-quad-r',
+  'out-cubic',
+  // 'in-out-circ',
+;
+
+@forward 'easings.scss' with($easings: $easings);
+@forward 'colors';
+@forward 'typo';

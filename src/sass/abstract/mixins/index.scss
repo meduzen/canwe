@@ -1,0 +1,12 @@
+/**
+ * family.scss will likely never be compatible with Dart SASS.
+ * Luckily enough, its usage in this project is limited.
+ *
+ * Better wait for :has broader support to write modern quantity queries or fall
+ * back on a PostCSS plugin:
+ * - https://github.com/mpeutz/postcss-family
+ * - https://github.com/pascalduez/postcss-quantity-queries
+ */
+
+@forward 'family.scss/all-but';
+@forward 'txt';
