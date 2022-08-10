@@ -10,6 +10,7 @@ const config = {
   workers: process.env.CI ? 2 : 1,
   use: {
     baseURL: process.env.PW_BASE_URL,
+    ignoreHTTPSErrors: true,
     trace: 'on-first-retry',
   },
   projects: [
