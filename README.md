@@ -23,3 +23,8 @@ Websites colors are CSS custom properties in [`/src/sass/site/_colors.scss`](/sr
 ### Tests
 
 Tests use [Playwright](https://playwright.dev) and can be run with `npm test`.
+
+Before being able to run tests:
+- make sure the project is accessible from a URL;
+- add this URL in the `PW_BASE_URL` entry of your `.env`;
+- `npx playwright install` pulls the headless browsers used by the test.
