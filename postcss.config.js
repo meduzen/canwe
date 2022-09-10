@@ -16,13 +16,11 @@ const postcssPresetEnvOptions = {
   },
 }
 
-const cssNanoOptions = { preset: ['default', { colormin: false }] }
-
 module.exports = ({ options, env }) => ({
   plugins: [
     postcssShortSize(),
     postcssSafeArea(),
     postcssPresetEnv(postcssPresetEnvOptions),
-    env === 'production' ? cssNano(cssNanoOptions) : false,
+    env === 'production' ? cssNano() : false,
   ],
 })
