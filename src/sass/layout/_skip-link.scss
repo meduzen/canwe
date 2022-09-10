@@ -34,7 +34,7 @@
   @media (--light) {
     border-radius: 0 0 v(card-radius) v(card-radius);
     box-shadow:
-      hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
-      hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
+      hsl(0 0% 0% / .1) 0 .3rem .6rem 0,
+      hsl(0 0% 0% / .08) 0 .1rem .3rem 0;
   }
 }

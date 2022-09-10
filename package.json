@@ -19,6 +19,7 @@
         "dotenv": "^16",
         "double-dash.scss": "^1.0.0-rc.0",
         "family.scss": "^1.0",
+        "hsl.scss": "^1.0.1",
         "postcss-preset-env": "^7",
         "postcss-safe-area": "0.1",
         "postcss-short-size": "^4.0",

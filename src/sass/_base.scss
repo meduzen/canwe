@@ -35,20 +35,20 @@ $global-w: (
   --primary-s: var(--black-s);
   --primary-l: var(--black-l);
   --primary-a: var(--black-a);
-  --primary: hsla(var(--primary-h), var(--primary-s), var(--primary-l), var(--primary-a));
+  --primary: hsl(var(--primary-h) var(--primary-s) var(--primary-l) / var(--primary-a));
 
   --bg-h: var(--white-h);
   --bg-s: var(--white-s);
   --bg-l: var(--white-l);
   --bg-a: var(--white-a);
-  --bg: hsla(var(--bg-h), var(--bg-s), var(--bg-l), var(--bg-a));
-  // --bg: hsla(0, 0%, 100%, 1);
+  --bg: hsl(var(--bg-h) var(--bg-s) var(--bg-l) / var(--bg-a));
+  // --bg: hsl(0 0% 100%);
 
   --accent-h: var(--red-h);
   --accent-s: var(--red-s);
   --accent-l: var(--red-l);
   --accent-a: var(--red-a);
-  --accent: hsla(var(--accent-h), var(--accent-s), var(--accent-l), var(--accent-a));
+  --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / var(--accent-a));
 
   @media (--dark) {
     --primary-h: var(--white-h);

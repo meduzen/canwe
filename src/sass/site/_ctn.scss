@@ -18,8 +18,8 @@
   // Light theme shadow
   @media (--light) {
     box-shadow:
-      hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
-      hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
+      hsl(0 0% 0% / .1) 0 .3rem .6rem 0,
+      hsl(0 0% 0% / .08) 0 .1rem .3rem 0;
   }
 
   @media (--phone) {
@@ -44,8 +44,8 @@
 
       border-radius: v(card-radius);
       box-shadow:
-        hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
-        hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
+        hsl(0 0% 0% / .2) 0 .3rem 1.6rem 0,
+        hsl(0 0% 0% / .08) 0 .1rem .4rem 0;
       opacity: 0;
 
       transition: opacity .65s $out-cubic;
