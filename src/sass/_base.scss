@@ -322,18 +322,10 @@ abbr[title] {
 a {
   color: v(primary);
 
-  // transition: color .15s $in-out-quad;
-
-  // @media (--phone) {
-  //   text-decoration: none;
-  // }
-
-  // &:focus,
-  // &:hover {
-  //   color: v(accent);
-
-  //   @include outline(v(accent), .1rem, dashed, .3rem);
-  // }
+  &:focus-visible {
+    outline: .2rem solid;
+    border-radius: .1rem;
+  }
 }
 
 /* TITLES */
