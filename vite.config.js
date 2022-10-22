@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 /**
  * Parses .env file, using `dotenv`.
  *
  * We could use `loadEnv` (from 'vite'), but it exposes too much system values.
- * Despite being used by vite under the hood, `dotenv` is among the project
+ * Despite being used by Vite under the hood, `dotenv` is among the project
  * dev dependencies due to a version difference: Vite sticks to v14.3.2
  * while the project uses v16.x.
  *
@@ -51,4 +52,19 @@ export default defineConfig({
   server: {
     open: env.BROWSER_OPEN == 'true',
   },
+
+  plugins: [
+    createHtmlPlugin({
+      minify: {
+        collapseWhitespace: true,
+        keepClosingSlash: false,
+        removeComments: true,
+        // removeRedundantAttributes: true,
+        // removeScriptTypeAttributes: true,
+        // removeStyleLinkTypeAttributes: true,
+        // useShortDoctype: true,
+        // minifyCSS: true,
+      },
+    }),
+  ],
 })
