@@ -7,6 +7,11 @@
   @supports (top: max(0px)) {
     padding-bottom: max(var(--safe-bottom), 3rem);
   }
+
+  a:focus-visible {
+    outline: .2rem solid;
+    border-radius: .1rem;
+  }
 }
 
 .footer__item {
