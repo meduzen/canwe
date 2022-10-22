@@ -7,24 +7,22 @@
 
   background: v(site-bg, v(primary));
   border-radius: v(card-radius);
+  box-shadow: hsl(0 0% 0% / .1) 0 .1rem .6rem 0;
   color: v(site-primary, v(bg));
 
   // Fix Chrome 80 visual glitch on hover.
   // https://github.com/meduzen/canwe/issues/17
-  transform: scale(.999);
+  // transform: scale(.999);
 
-  transition: transform .65s $out-cubic;
+  transition: transform .3s $out-cubic;
 
-  // Light theme shadow
-  @media (--light) {
-    box-shadow:
-      hsl(0 0% 0% / .1) 0 .3rem .6rem 0,
-      hsl(0 0% 0% / .08) 0 .1rem .3rem 0;
+  @media (--dark) {
+    box-shadow: hsl(0 0% 0% / .3) 0 .1rem .6rem 0;
   }
 
   @media (--phone) {
     &:hover, &:focus-within {
-      transform: scale(1.02);
+      transform: translateY(-.3rem);
 
       &::after {
         opacity: 1;
@@ -32,23 +30,22 @@
     }
   }
 
-  // Light theme shadow, visible on hover and focus
 
   &::after {
-    @media (--light) {
-      content: '';
-      position: absolute;
-      inset: 0;
+    content: '';
+    position: absolute;
+    inset: 0;
 
-      pointer-events: none;
+    pointer-events: none;
 
-      border-radius: v(card-radius);
-      box-shadow:
-        hsl(0 0% 0% / .2) 0 .3rem 1.6rem 0,
-        hsl(0 0% 0% / .08) 0 .1rem .4rem 0;
-      opacity: 0;
+    border-radius: v(card-radius);
+    box-shadow: hsl(0 0% 0% / .05) 0 1rem 5rem 1rem;
+    opacity: 0;
 
-      transition: opacity .65s $out-cubic;
+    transition: opacity .3s $out-cubic;
+
+    @media (--dark) {
+      box-shadow: hsl(0 0% 0% / .3) 0 .1rem .6rem 0;
     }
   }
 }
