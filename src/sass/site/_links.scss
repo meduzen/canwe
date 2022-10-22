@@ -54,6 +54,12 @@
     position: absolute;
     inset: 0;
     z-index: 0;
+
+    border: .2rem solid v(primary);
+    border-radius: v(card-radius);
+    opacity: 0;
+
+    transition: opacity .3s $in-out-quad;
   }
 }
 

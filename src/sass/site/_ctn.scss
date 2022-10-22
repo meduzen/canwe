@@ -28,6 +28,12 @@
         opacity: 1;
       }
     }
+
+    &:focus-within {
+      .site__link::after {
+        opacity: 1;
+      }
+    }
   }
 
 
