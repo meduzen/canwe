@@ -34,11 +34,6 @@
     }
   }
 
-  &:focus-visible {
-    outline: .2rem solid;
-    border-radius: .1rem;
-  }
-
   > * {
     transition: opacity .3s $in-out-quad;
   }

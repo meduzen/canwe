@@ -321,6 +321,11 @@ abbr[title] {
 
 a {
   color: v(primary);
+
+  &:focus-visible {
+    outline: .2rem solid;
+    border-radius: .1rem;
+  }
 }
 
 /* TITLES */
