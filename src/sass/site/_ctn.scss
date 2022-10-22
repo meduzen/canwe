@@ -1,6 +1,8 @@
 @use '../abstract' as *;
 @use '../variables' as *;
 
+// Site card
+
 .site {
   position: relative;
   padding: 2rem;
@@ -10,9 +12,8 @@
   box-shadow: hsl(0 0% 0% / .1) 0 .1rem .6rem 0;
   color: v(site-primary, v(bg));
 
-  // Fix Chrome 80 visual glitch on hover.
-  // https://github.com/meduzen/canwe/issues/17
-  // transform: scale(.999);
+  // When the custom property isn’t valid, the whole rule is ignored.
+  transform: translateY(calc(v(site-highlight-card) * -.3rem));
 
   transition: transform .3s $out-cubic;
 
@@ -20,22 +21,38 @@
     box-shadow: hsl(0 0% 0% / .3) 0 .1rem .6rem 0;
   }
 
-  @media (--phone) {
-    &:hover, &:focus-within {
-      transform: translateY(-.3rem);
+  // Shows interactions when viewport not too small.
 
-      &::after {
-        opacity: 1;
+  @media (--phone) {
+    --site-outline-distance: .6rem;
+    --site-outline-w: .2rem;
+
+    // Card shadow and vertical translation
+    &:hover, &:focus-within {
+      --site-highlight-card: 1;
+    }
+
+    // Show the card outline when an inner link should show its focus ring.
+    @supports selector(*:has(:focus-visible)) {
+      &:has(:focus-visible) {
+        --site-outline-visible: 1;
       }
     }
 
-    &:focus-within {
-      .site__link::after {
-        opacity: 1;
+    // Fallback for focus ring.
+    @supports not selector(*:has(:focus-visible)) {
+      &:focus-within {
+        --site-outline-visible: 1;
       }
     }
   }
 
+  @media (--tablet-10) {
+    --site-outline-distance: .7rem;
+    --site-outline-w: .3rem;
+  }
+
+  // Additional shadow on hover and focus
 
   &::after {
     content: '';
@@ -46,7 +63,7 @@
 
     border-radius: v(card-radius);
     box-shadow: hsl(0 0% 0% / .05) 0 1rem 5rem 1rem;
-    opacity: 0;
+    opacity: v(site-highlight-card, 0);
 
     transition: opacity .3s $out-cubic;
 

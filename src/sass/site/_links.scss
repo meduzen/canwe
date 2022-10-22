@@ -27,13 +27,15 @@
   text-decoration: none;
 
   color: v(site-accent, v(site-primary));
-  opacity: .6;
 
-  transition: opacity .3s $in-out-quad;
+  &:not(:hover,:focus) {
+    > * {
+      opacity: .6;
+    }
+  }
 
-  &:hover,
-  &:focus {
-    opacity: 1;
+  > * {
+    transition: opacity .3s $in-out-quad;
   }
 }
 
@@ -49,17 +51,17 @@
     display: block;
   }
 
+  // Focus ring for the site card + hack to make the whole card clickable.
+
   &::after {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: calc(v(site-outline-distance) * -1);
     z-index: 0;
 
-    border: .2rem solid v(primary);
-    border-radius: v(card-radius);
-    opacity: 0;
-
-    transition: opacity .3s $in-out-quad;
+    border: v(site-outline-w) solid v(primary);
+    border-radius: calc(v(card-radius) + v(site-outline-distance));
+    opacity: v(site-outline-visible, 0);
   }
 }
 
