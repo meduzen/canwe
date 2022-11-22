@@ -23,10 +23,10 @@ test('All links are valid `href` attribute', async ({ page }) => {
   // Show wrong URLs.
   if (invalidUrls.length) {
     const urlStr = invalidUrls.length > 1 ? 'URLs' : 'URL'
-    throw(`${invalidUrls.length} invalid ${urlStr}: ${invalidUrls.join(', ')}`)
+    var errorStr = `${invalidUrls.length} invalid ${urlStr}: ${invalidUrls.join(', ')}`
   }
 
-  await expect(null).toBeNull()
+  await expect(invalidUrls.length, errorStr).toBe(0)
 })
 
 test('It links to the source code from the footer', async ({ page }) => {
