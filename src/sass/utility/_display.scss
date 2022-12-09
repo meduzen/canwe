@@ -1,15 +1,18 @@
+/**
+ * Visually hide an element, but keep it in the accessibility tree.
+ * https://www.tpgi.com/the-anatomy-of-visually-hidden/
+ *
+ * `:active` is kept because on Safari `:focus` is not preserved on `:active`.
+ * So this ruleset will be applied unless the element is focused or active.
+ * Without `:not(:active)`, the element will lose `:focus` starting the
+ * mousedown phase, and thus disappear, preventing any click action.
+ */
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
-  size: 1px 1px;
-  margin: -1px;
-  padding: 0;
+  size: 1px;
 
-  clip: rect(0 0 0 0);
-  clip-path: inset(100%);
-  // clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  clip-path: inset(50%);
   overflow: hidden;
-
-  border: 0;
 
   white-space: nowrap;
 }
