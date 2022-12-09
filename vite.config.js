@@ -14,9 +14,9 @@ import { createHtmlPlugin } from 'vite-plugin-html'
  * https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md
  */
 const env = require('dotenv').config().parsed
-// const isProd = env.NODE_ENV === 'production'
+// const isProd = env?.NODE_ENV === 'production'
 
-let outDir = env.APP_BUILD_DIR || 'public'
+let outDir = env?.APP_BUILD_DIR || 'public'
 
 // Prevents to output app files outside of the project root.
 if (outDir.includes('../')) {
@@ -50,7 +50,7 @@ export default defineConfig({
   },
 
   server: {
-    open: env.BROWSER_OPEN == 'true',
+    open: env?.BROWSER_OPEN == 'true',
   },
 
   plugins: [
