@@ -16,7 +16,6 @@
     "devDependencies": {
         "@playwright/test": "^1.22.0",
         "cssnano": "^5",
-        "dotenv": "^16",
         "double-dash.scss": "^1",
         "family.scss": "^1.0",
         "hsl.scss": "^1.0.1",
