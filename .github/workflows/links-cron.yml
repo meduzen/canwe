@@ -6,7 +6,7 @@ on:
   repository_dispatch:
   workflow_dispatch:
   schedule:
-    - cron: "08 02 8,23 * *"
+    - cron: "08 02 9,24 * *"
 
 jobs:
 
