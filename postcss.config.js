@@ -9,10 +9,9 @@ const postcssPresetEnvOptions = {
     // https://github.com/csstools/postcss-plugins/blob/main/plugin-packs/postcss-preset-env/src/plugins/plugins-by-id.mjs
     'all-property': false,
     'color-functional-notation': false,
-    'focus-within-pseudo-class': false,
-    'focus-visible-pseudo-class': false,
-    'logical-properties-and-values': { dir: 'ltr' },
-    'prefers-color-scheme-query': false,
+
+    // https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc#options
+    'nested-calc': { preserve: false },
   },
 }
 
