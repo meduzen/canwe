@@ -26,6 +26,25 @@ if (outDir.includes('../')) {
 // Shortcut to project root path
 const thePath = (path = '') => resolve(__dirname, path)
 
+/**
+ * HTTPS, works well with Laravel Valet (macOS)
+ * Laravel Valet HTTPS: https://github.com/laravel/docs/blob/master/valet.md#securing-sites-with-tls
+ * Not tested with other setups.
+ */
+
+const host = env.SERVER_HOST ?? null
+let https = env.SERVER_HTTPS === 'true'
+
+if (https && host && env.SERVER_CERTIFICATES_DIR) {
+  const userDir = require('os').homedir()
+  const certificatesPath = `${userDir}/${env.SERVER_CERTIFICATES_DIR}/${host}`
+
+  https = {
+    key: `${certificatesPath}.key`,
+    cert: `${certificatesPath}.crt`,
+  }
+}
+
 export default defineConfig({
   root: 'src',
 
@@ -50,7 +69,9 @@ export default defineConfig({
   },
 
   server: {
-    open: env?.BROWSER_OPEN == 'true',
+    open: env?.BROWSER_OPEN === 'true',
+    ...(host ? { host } : null),
+    https,
   },
 
   plugins: [
