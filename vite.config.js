@@ -32,8 +32,8 @@ const thePath = (path = '') => resolve(__dirname, path)
  * Not tested with other setups.
  */
 
-const host = env.SERVER_HOST ?? null
-let https = env.SERVER_HTTPS === 'true'
+const host = env?.SERVER_HOST ?? null
+let https = env?.SERVER_HTTPS === 'true'
 
 if (https && host && env.SERVER_CERTIFICATES_DIR) {
   const userDir = require('os').homedir()
