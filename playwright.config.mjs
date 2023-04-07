@@ -52,5 +52,5 @@ export default {
     //   use: { ...devices['Desktop Safari'] },
     // },
   ],
-  reporter: process.env.CI ? 'github' : 'list',
+  reporter: process.env.CI ? [['github'], ['html']] : 'list',
 }
