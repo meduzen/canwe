@@ -37,7 +37,7 @@ export default {
     ignoreHTTPSErrors: true,
     trace: 'on-first-retry',
   },
-  preserveOutput: 'never',
+  // preserveOutput: 'never',
   projects: [
     {
       name: 'chromium',
