@@ -18,7 +18,6 @@ if (isInvalidUrl(baseURL)) {
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 export default {
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : 1,
 
   ...(process.env.CI
