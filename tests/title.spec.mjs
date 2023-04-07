@@ -8,5 +8,5 @@ test('Can We is the title', async ({ page }) => {
   await expect(page).toHaveTitle(/Can We/)
 
   const title = page.locator('h1')
-  expect(title).toBe('Can We')
+await expect(title).toHaveText('Can We')
 })
