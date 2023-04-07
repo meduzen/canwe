@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  PW_BASE_URL: https://localhost:4173
+  PW_BASE_URL: http://localhost:4173
 
 jobs:
   test:
