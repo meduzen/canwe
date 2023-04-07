@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { isInvalidUrl } from './utils/urls.mjs'
+import { isInvalidUrl } from './utils/url.mjs'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 
 test('All links have a non-empty `href` attribute', async ({ page }) => {
   const badLinks = await page.$('a:not([href]), a[href=""]')
-  await expect(badLinks).toBeNull()
+  expect(badLinks).toBeNull()
 })
 
 test('All links have a valid external URL', async ({ page }) => {
@@ -34,7 +34,7 @@ test('All links have a valid external URL', async ({ page }) => {
     var errorStr = `${invalidUrls.length} invalid ${urlStr}: ${invalidUrls.join(', ')}`
   }
 
-  await expect(invalidUrls.length, errorStr).toBe(0)
+  expect(invalidUrls.length, errorStr).toBe(0)
 })
 
 test('It links to the source code from the footer', async ({ page }) => {

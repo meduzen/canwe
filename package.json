@@ -7,7 +7,8 @@
         "dev": "vite --mode=development",
         "build": "vite build --mode=production",
         "preview": "vite preview",
-        "test": "playwright test"
+        "test": "playwright test",
+        "test-ui": "playwright test --ui"
     },
     "dependencies": {
         "easings.scss": "^1.0.0-rc.0",

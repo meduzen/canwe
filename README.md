@@ -29,6 +29,8 @@ Before being able to run tests:
 - add this URL in the `PW_BASE_URL` entry of your `.env`;
 - `npx playwright install` pulls the headless browsers used by the test.
 
+You can also play with Playwright GUI by running `npm run test-gui`.
+
 ## Various
 
 Last deployment:
