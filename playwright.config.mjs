@@ -25,6 +25,7 @@ export default {
     ? { webServer: {
       command: 'npm run preview',
       url: baseURL,
+      timeout: 120000,
       ignoreHTTPSErrors: true,
       reuseExistingServer: !process.env.CI,
     } }
