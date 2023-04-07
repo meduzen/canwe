@@ -21,6 +21,16 @@ export default {
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : 1,
 
+  ...(process.env.CI
+    ? { webServer: {
+      command: 'npm run preview',
+      url: baseURL,
+      ignoreHTTPSErrors: true,
+      reuseExistingServer: !process.env.CI,
+    } }
+    : null
+  ),
+
   // tons of interesting options: https://playwright.dev/docs/api/class-testoptions
   use: {
     baseURL,
