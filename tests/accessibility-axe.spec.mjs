@@ -58,13 +58,13 @@ test('It has no automatically detectable accessibility issues', async ({
     // fix syntax highlighting for `file://` protocol
     .replaceAll('//cdnjs', 'https://cdnjs')
 
-  // // 2. Save HTML string in file
+  // 2. Save HTML string in file
 
-  // const htmlReportDir = 'tests/results/axe-html'
-  // if (!fs.existsSync(htmlReportDir)) {
-  //   fs.mkdirSync(htmlReportDir, { recursive: true })
-  // }
-  // fs.writeFileSync(`${htmlReportDir}/${timestamp}.html`, htmlReport)
+  const htmlReportDir = 'tests/results/axe-html'
+  if (!fs.existsSync(htmlReportDir)) {
+    fs.mkdirSync(htmlReportDir, { recursive: true })
+  }
+  fs.writeFileSync(`${htmlReportDir}/${timestamp}.html`, htmlReport)
 
   // 3. Attach HTML report to main Playwright report
 
