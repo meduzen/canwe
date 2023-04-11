@@ -1,7 +1,7 @@
-const postcssPresetEnv = require('postcss-preset-env')
-const postcssSafeArea = require('postcss-safe-area')
-const postcssShortSize = require('postcss-short-size')
-const cssNano = require('cssnano')
+import postcssPresetEnv from 'postcss-preset-env'
+import postcssSafeArea from 'postcss-safe-area'
+import postcssShortSize from 'postcss-short-size'
+import cssNano from 'cssnano'
 
 const postcssPresetEnvOptions = {
   stage: 0,
@@ -15,7 +15,7 @@ const postcssPresetEnvOptions = {
   },
 }
 
-module.exports = ({ options, env }) => ({
+export default ({ options, env }) => ({
   plugins: [
     postcssShortSize(),
     postcssSafeArea(),
