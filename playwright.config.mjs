@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import { devices } from '@playwright/test'
+import { dateToKebab } from './tests/utils/date.mjs';
 import { isInvalidUrl } from './tests/utils/url.mjs';
 
 /**
@@ -15,8 +16,16 @@ if (isInvalidUrl(baseURL)) {
   throw new Error(`PW_BASE_URL is not a valid URL: ${baseURL}`)
 }
 
+const filename = `${process.env.SERVER_HOST}-${dateToKebab(new Date())}`
+
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 export default {
+  // testIgnore: '**accessibility-axe**',
+
+  metadata: {
+    filename,
+  },
+
   forbidOnly: !!process.env.CI,
   workers: process.env.CI ? 2 : 1,
 
@@ -51,5 +60,19 @@ export default {
     //   use: { ...devices['Desktop Safari'] },
     // },
   ],
-  reporter: process.env.CI ? [['github'], ['html']] : 'list',
+  reporter: process.env.CI
+    ? [['github'], ['html']]
+    : [
+      // ['dot'],
+      // ['list'],
+      ['html', {
+        open: 'never',
+        outputFile: `${filename}.html`, // ignored…, index.html must have its subfolder, otherwise it erases other existing files
+        outputFolder: `tests/results/html`,
+      }],
+      ['json', {
+        outputFile: `tests/results/${filename}.json`,
+      }],
+    ]
+  ,
 }

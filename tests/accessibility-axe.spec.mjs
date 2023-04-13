@@ -6,7 +6,6 @@ import AxeCorePlaywright from '@axe-core/playwright'
 
 import { createHtmlReport } from 'axe-html-reporter'
 import fs from 'fs'
-import { dateToKebab } from './utils/date.mjs';
 
 // Work around https://github.com/dequelabs/axe-core-npm/issues/601
 /** @type {import('@axe-core/playwright').default} */
@@ -14,19 +13,18 @@ const AxeBuilder = AxeCorePlaywright.default;
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
-  // await injectAxe(page)
 });
 
 test('It has no automatically detectable accessibility issues', async ({
   page,
 }, testInfo) => {
-  const timestamp = `canwe.test-${dateToKebab(new Date())}`
+  const { filename } = testInfo.config.metadata
 
   const results = await new AxeBuilder({ page }).analyze();
 
   const violationsCount = results.violations.flatMap(v => v.nodes).length
 
-  await testInfo.attach(`axe-json-${timestamp}`, {
+  await testInfo.attach(`axe-json-${filename}`, {
     body: JSON.stringify(results, null, 2),
     contentType: 'application/json',
   });
@@ -64,11 +62,11 @@ test('It has no automatically detectable accessibility issues', async ({
   if (!fs.existsSync(htmlReportDir)) {
     fs.mkdirSync(htmlReportDir, { recursive: true })
   }
-  fs.writeFileSync(`${htmlReportDir}/${timestamp}.html`, htmlReport)
+  fs.writeFileSync(`${htmlReportDir}/${filename}.html`, htmlReport)
 
   // 3. Attach HTML report to main Playwright report
 
-  await testInfo.attach(`axe-html-${timestamp}`, {
+  await testInfo.attach(`axe-html-${filename}`, {
     body: htmlReport,
     contentType: 'text/html',
   })
