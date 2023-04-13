@@ -82,6 +82,5 @@ test('It has no automatically detectable accessibility issues', async ({
   //   'nodes',
   // ])
 
-  // expect(violations.length).toBe(0)
-  expect(results.violations.length).toBe(0);
+  expect(violationsCount).toBe(0);
 });
