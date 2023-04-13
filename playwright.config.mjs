@@ -1,7 +1,7 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 import { devices } from '@playwright/test'
-import { dateToKebab } from './tests/utils/date.mjs';
-import { isInvalidUrl } from './tests/utils/url.mjs';
+import { dateToKebab } from './tests/utils/date.mjs'
+import { isInvalidUrl } from './tests/utils/url.mjs'
 
 /**
  * Inject `.env` file entries into `process.env` if `.env` file exists.
@@ -22,6 +22,7 @@ const filename = `${process.env.SERVER_HOST}-${dateToKebab(new Date())}`
 export default {
   // testIgnore: '**accessibility-axe**',
 
+  // Metadata can be used by test suites.
   metadata: {
     filename,
   },
@@ -46,6 +47,8 @@ export default {
     trace: 'on-first-retry',
   },
   // preserveOutput: 'never',
+
+  // In CI environment, only run Chromium
   projects: [
     {
       name: 'chromium',
@@ -59,7 +62,8 @@ export default {
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
     // },
-  ],
+  ].filter(({ name }) => name == 'chromium' || !process.env.CI),
+
   reporter: process.env.CI
     ? [['github'], ['html']]
     : [
