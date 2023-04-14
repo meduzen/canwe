@@ -6,6 +6,11 @@
  * @returns {boolean}
  */
 export const isInvalidUrl = url => {
-  try { new URL(url); return false }
-  catch (error) { return true }
+  try {
+    new URL(url)
+    return false
+  }
+  catch (error) {
+    return true
+  }
 }

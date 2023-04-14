@@ -15,7 +15,9 @@
         "normalize.css": "^8.0"
     },
     "devDependencies": {
+        "@axe-core/playwright": "^4.6.1",
         "@playwright/test": "^1.30.0",
+        "axe-html-reporter": "^2.2.3",
         "cssnano": "^6",
         "double-dash.scss": "^1",
         "family.scss": "^1.0",
@@ -23,7 +25,7 @@
         "postcss-preset-env": "^8",
         "postcss-safe-area": "0.1",
         "postcss-short-size": "^4.0",
-        "sass": "^1.56.0",
+        "sass": "^1",
         "v.scss": "^1.2.1",
         "vite": "^4",
         "vite-plugin-html": "^3.2.0"

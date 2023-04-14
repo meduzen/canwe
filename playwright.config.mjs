@@ -1,6 +1,7 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 import { devices } from '@playwright/test'
-import { isInvalidUrl } from './tests/utils/url.mjs';
+import { dateToKebab } from './tests/utils/date.mjs'
+import { isInvalidUrl } from './tests/utils/url.mjs'
 
 /**
  * Inject `.env` file entries into `process.env` if `.env` file exists.
@@ -15,10 +16,19 @@ if (isInvalidUrl(baseURL)) {
   throw new Error(`PW_BASE_URL is not a valid URL: ${baseURL}`)
 }
 
+const filename = `${process.env.SERVER_HOST}-${dateToKebab(new Date())}`
+
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 export default {
+  // testIgnore: '**accessibility-axe**',
+
+  // Metadata can be used by test suites.
+  metadata: {
+    filename,
+  },
+
   forbidOnly: !!process.env.CI,
-  workers: process.env.CI ? 2 : 1,
+  workers: process.env.CI ? 2 : undefined,
 
   ...(process.env.CI
     ? { webServer: {
@@ -37,6 +47,8 @@ export default {
     trace: 'on-first-retry',
   },
   // preserveOutput: 'never',
+
+  // In CI environment, only run Chromium
   projects: [
     {
       name: 'chromium',
@@ -50,6 +62,21 @@ export default {
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
     // },
-  ],
-  reporter: process.env.CI ? [['github'], ['html']] : 'list',
+  ].filter(({ name }) => name == 'chromium' || !process.env.CI),
+
+  reporter: process.env.CI
+    ? [['github'], ['html']]
+    : [
+      // ['dot'],
+      // ['list'],
+      ['html', {
+        open: 'never',
+        outputFile: `${filename}.html`, // ignored…, index.html must have its subfolder, otherwise it erases other existing files
+        outputFolder: `tests/results/html`,
+      }],
+      ['json', {
+        outputFile: `tests/results/${filename}.json`,
+      }],
+    ]
+  ,
 }
