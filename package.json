@@ -11,7 +11,8 @@
         "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
         "postinstall": "rm -f .eslintcache",
         "test": "playwright test",
-        "test-ui": "playwright test --ui"
+        "test-ui": "playwright test --ui",
+        "prepare": "husky install"
     },
     "dependencies": {
         "easings.scss": "^1.0.0-rc.0",
@@ -27,6 +28,7 @@
         "eslint-plugin-playwright": "^0.12.0",
         "family.scss": "^1.0",
         "hsl.scss": "^1.0.1",
+        "husky": "^8.0.3",
         "postcss-preset-env": "^8",
         "postcss-safe-area": "0.1",
         "postcss-short-size": "^4.0",
