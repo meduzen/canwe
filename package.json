@@ -9,10 +9,9 @@
         "preview": "vite preview",
         "lint": "npx eslint --ext .js,.mjs ./",
         "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
-        "postinstall": "rm -f .eslintcache",
+        "postinstall": "rm -f .eslintcache && husky install",
         "test": "playwright test",
-        "test-ui": "playwright test --ui",
-        "prepare": "husky install"
+        "test-ui": "playwright test --ui"
     },
     "dependencies": {
         "easings.scss": "^1.0.0-rc.0",
