@@ -1,86 +1,42 @@
 import { test, expect } from '@playwright/test'
-
-// https://playwright.dev/docs/accessibility-testing
-// https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright
-import AxeCorePlaywright from '@axe-core/playwright'
-
-import { createHtmlReport } from 'axe-html-reporter'
-import fs from 'fs'
-
-// Work around https://github.com/dequelabs/axe-core-npm/issues/601
-/** @type {import('@axe-core/playwright').default} */
-const AxeBuilder = AxeCorePlaywright.default;
+import { axeCategories, createHtmlReport, testAccessibilty } from './utils/axe-core.mjs'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-test('It has no automatically detectable accessibility issues', async ({
-  page,
-}, testInfo) => {
-  const { filename } = testInfo.config.metadata
+axeCategories.forEach(({ name, tags, id }) =>
+  test(`It has no automatically detectable accessibility issues of category “${name}”`, async ({
+    page,
+  }, testInfo) => {
+    const { filename } = testInfo.config.metadata
 
-  const results = await new AxeBuilder({ page }).analyze();
+    const results = await testAccessibilty(page, tags)
+    const violationsCount = results.violations.flatMap(v => v.nodes).length
+    const htmlReport = createHtmlReport(results, `${filename}-${id}`)
 
-  const violationsCount = results.violations.flatMap(v => v.nodes).length
+    // Attach JSON and HTML reports to the test results.
+    await Promise.allSettled([
+      testInfo.attach(`${id}-json-${filename}`, {
+        body: JSON.stringify(results, null, 2),
+        contentType: 'application/json',
+      }),
+      testInfo.attach(`${id}-html-${filename}`, {
+        body: htmlReport,
+        contentType: 'text/html',
+      })
+    ])
 
-  await testInfo.attach(`axe-json-${filename}`, {
-    body: JSON.stringify(results, null, 2),
-    contentType: 'application/json',
-  });
+    /**
+     * Attach Axe results to the JSON report.
+     * https://playwright.dev/docs/test-annotations#custom-annotations
+     */
+    testInfo.annotations.push({
+      type: `${id}-violations-count`,
+      description: `Accessibility violations (${name}): ${violationsCount}.`,
+      results,
+    });
 
-  /**
-   * Send Axe results to the JSON report.
-   *
-   * https://playwright.dev/docs/test-annotations#custom-annotations
-   */
-  // testInfo.annotations.push(results);
-  testInfo.annotations.push({
-    type: 'axe-violations-count',
-    description: `Accessibility violations: ${violationsCount}.`,
-    results,
-  });
-
-  /**
-   * HTML REPORT
-   */
-
-  // 1. Generate HTML string from results
-
-  const htmlReport = createHtmlReport({
-    results,
-    options: {
-      doNotCreateReportFile: true,
-    }
+    expect(violationsCount).toBe(0);
   })
-    // fix syntax highlighting for `file://` protocol
-    .replaceAll('//cdnjs', 'https://cdnjs')
-
-  // 2. Save HTML string in file
-
-  const htmlReportDir = 'tests/results/axe-html'
-  if (!fs.existsSync(htmlReportDir)) {
-    fs.mkdirSync(htmlReportDir, { recursive: true })
-  }
-  fs.writeFileSync(`${htmlReportDir}/${filename}.html`, htmlReport)
-
-  // 3. Attach HTML report to main Playwright report
-
-  await testInfo.attach(`axe-html-${filename}`, {
-    body: htmlReport,
-    contentType: 'text/html',
-  })
-
-  // console.table(results.violations, [
-  //   'index',
-  //   'id',
-  //   'impact',
-  //   'tags',
-  //   'description',
-  //   'help',
-  //   'helpUrl',
-  //   'nodes',
-  // ])
-
-  expect(violationsCount).toBe(0);
-});
+)
