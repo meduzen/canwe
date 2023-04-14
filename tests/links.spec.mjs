@@ -6,8 +6,8 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('All links have a non-empty `href` attribute', async ({ page }) => {
-  const badLinks = await page.$('a:not([href]), a[href=""]')
-  expect(badLinks).toBeNull()
+  const badLinksCount = await page.locator('css=a:not([href]), a[href=""]').count()
+  expect(badLinksCount).toBe(0)
 })
 
 test('All links have a valid external URL', async ({ page }) => {

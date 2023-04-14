@@ -9,8 +9,7 @@ export const isInvalidUrl = url => {
   try {
     new URL(url)
     return false
-  }
-  catch (error) {
+  } catch (error) {
     return true
   }
 }
