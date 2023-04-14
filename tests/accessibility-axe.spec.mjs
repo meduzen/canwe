@@ -3,7 +3,7 @@ import { axeCategories, createHtmlReport, testAccessibilty } from './utils/axe-c
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
-});
+})
 
 axeCategories.forEach(({ name, tags, id }) =>
   test(`It has no automatically detectable accessibility issues of category “${name}”`, async ({
@@ -35,7 +35,7 @@ axeCategories.forEach(({ name, tags, id }) =>
       type: `${id}-violations-count`,
       description: `Accessibility violations (${name}): ${violationsCount}.`,
       results,
-    });
+    })
 
     expect(violationsCount).toBe(0)
   })

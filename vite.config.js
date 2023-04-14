@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import eslintPlugin from 'vite-plugin-eslint'
 
 /**
  * Parses .env file, using `dotenv`.
@@ -14,7 +15,7 @@ import { createHtmlPlugin } from 'vite-plugin-html'
  * https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md
  */
 const env = require('dotenv').config().parsed
-// const isProd = env?.NODE_ENV === 'production'
+const isProd = env?.NODE_ENV === 'production'
 
 let outDir = env?.APP_BUILD_DIR || 'public'
 
@@ -25,6 +26,14 @@ if (outDir.includes('../')) {
 
 // Shortcut to project root path
 const thePath = (path = '') => resolve(__dirname, path)
+
+// ESLint Options
+const esLintOptions = {
+  cache: false, // cache is cleaned on `npm install`
+  cacheStrategy: 'content',
+  fix: env?.ES_LINT_AUTOFIX == 'true',
+  formatter: env?.ES_LINT_FORMATTER ?? 'stylish',
+}
 
 /**
  * HTTPS, works well with Laravel Valet (macOS)
@@ -80,6 +89,7 @@ export default defineConfig({
   },
 
   plugins: [
+    ...(isProd ? [] : [eslintPlugin(esLintOptions)]),
     createHtmlPlugin({
       minify: {
         collapseWhitespace: true,
