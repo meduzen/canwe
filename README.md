@@ -31,14 +31,14 @@ Before running tests locally:
 
 You can also play with Playwright GUI by running `npm run test-gui`.
 
-### Local tests results
+#### Local tests results
 
 When running the tests locally, the results are in `/tests/results`:
 - `{tld}-{timestamp}.json`: JSON report of the test suites;
 - `html/index.html`: HTML report of the latest test suites;
 - `axe-html/{tld}-{timestamp}-{wcag2-a|wcag2-aa|others}.html`: HTML reports of the accessibility tests, split by category (WCAG 2 A, WCAG 2 AA, others);
 
-### GitHub Action tests results
+#### GitHub Action tests results
 
 When running in a GitHub action, the “summary” view of the GitHub Action has an _artifact_ section at the very bottom. The artifact archive contains the same HTML report as in `html/index.html` when you run tests locally.
 
