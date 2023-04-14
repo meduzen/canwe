@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 import { axeCategories, createHtmlReport, testAccessibilty } from './utils/axe-core.mjs'
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/')
 });
 
 axeCategories.forEach(({ name, tags, id }) =>
@@ -37,6 +37,6 @@ axeCategories.forEach(({ name, tags, id }) =>
       results,
     });
 
-    expect(violationsCount).toBe(0);
+    expect(violationsCount).toBe(0)
   })
 )

@@ -6,7 +6,7 @@ import fs from 'fs'
 
 // Types workaround https://github.com/dequelabs/axe-core-npm/issues/601
 /** @type {import('@axe-core/playwright').default} */
-const AxeBuilder = AxeCorePlaywright.default;
+const AxeBuilder = AxeCorePlaywright.default
 
 export const axeCategories = [
   {
