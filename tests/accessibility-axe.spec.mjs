@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
-import { axeCategories, createHtmlReport, testAccessibilty } from './utils/axe-core.mjs'
+import { axeCategories, createHtmlReport, excludeSelectors, testAccessibilty } from './utils/axe-core.mjs'
+
+excludeSelectors('img[src^="https://matomo."]')
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
