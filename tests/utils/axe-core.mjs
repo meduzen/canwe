@@ -8,6 +8,17 @@ import fs from 'fs'
 /** @type {import('@axe-core/playwright').default} */
 const AxeBuilder = AxeCorePlaywright.default
 
+let exclusions = []
+
+/**
+ * Exclude selectors from Axe tests.
+ *
+ * @param {...string|string[]} selectors
+ */
+export const excludeSelectors = (...selectors) => {
+  exclusions = exclusions.concat(selectors.flat())
+}
+
 export const axeCategories = [
   {
     id: 'axe-wcag2-a',
@@ -43,6 +54,8 @@ export const testAccessibilty = (page, tags = null) => {
   if (tags) {
     axeBuilder.withTags(tags)
   }
+
+  exclusions.forEach(selector => axeBuilder.exclude(selector))
 
   return axeBuilder.analyze()
 }
