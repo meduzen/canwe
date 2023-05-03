@@ -1,12 +1,8 @@
 // https://playwright.dev/docs/accessibility-testing
 // https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright
-import AxeCorePlaywright from '@axe-core/playwright'
+import AxeBuilder from '@axe-core/playwright'
 import { createHtmlReport as createAxeHtmlReport } from 'axe-html-reporter'
 import fs from 'fs'
-
-// Types workaround https://github.com/dequelabs/axe-core-npm/issues/601
-/** @type {import('@axe-core/playwright').default} */
-const AxeBuilder = AxeCorePlaywright.default
 
 let exclusions = []
 
