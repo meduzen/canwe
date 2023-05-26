@@ -119,6 +119,10 @@ html {
   background: v(bg);
   color: v(primary);
 
+  @media (--motion) {
+    scroll-behavior: smooth;
+  }
+
   @media (--phone) {
     font-size: 62.5%;
   }
