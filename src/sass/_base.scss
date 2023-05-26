@@ -121,6 +121,7 @@ html {
 
   @media (--motion) {
     scroll-behavior: smooth;
+    scroll-padding-block-start: 2.5em;
   }
 
   @media (--phone) {
