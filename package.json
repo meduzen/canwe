@@ -11,7 +11,8 @@
         "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
         "postinstall": "rm -f .eslintcache && husky install",
         "test": "playwright test",
-        "test-ui": "playwright test --ui"
+        "test:absolute-links": "lychee src/index.html",
+        "test:ui": "playwright test --ui"
     },
     "dependencies": {
         "easings.scss": "^1.0.0-rc.0",

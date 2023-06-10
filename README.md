@@ -29,7 +29,9 @@ Before running tests locally:
 - add this URL in the `PW_BASE_URL` entry of your `.env`;
 - `npx playwright install` pulls the headless browsers used by the test.
 
-You can also play with Playwright GUI by running `npm run test-gui`.
+You can also play with Playwright GUI by running `npm run test:ui`.
+
+URLs are tested on merge requests using [Lychee](https://lychee.cli.rs) in a GitHub Action. To test URLs locally install Lychee and run `npm run test:absolute-links`.
 
 #### Local tests results
 
