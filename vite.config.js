@@ -90,6 +90,11 @@ export default defineConfig({
 
   plugins: [
     ...(isProd ? [] : [eslintPlugin(esLintOptions)]),
+
+    /**
+     * Minify HTML: if unmaintained in the long run, see alternatives in
+     * https://github.com/vbenjs/vite-plugin-html/issues/112#issuecomment-1455160080
+     */
     createHtmlPlugin({
       minify: {
         collapseWhitespace: true,
