@@ -47,5 +47,7 @@ export const isNotAnchorLink = hash => !isAnchorLink(hash)
  *
  * - `link.getAttribute('href')`: 'something' (invalid URL)
  * - resolved `link.href`: 'http://127.0.0.1:5173/something' (valid URL)
+ *
+ * @param {[SVGElement|HTMLElement]} $els
  */
 export const getAllHrefAttr = $els => $els.map(link => link.getAttribute('href'))
