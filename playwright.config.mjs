@@ -28,10 +28,14 @@ export default {
   },
 
   forbidOnly: !!process.env.CI,
+
+  retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
 
   ...(process.env.CI
     ? { webServer: {
+      // @todo: consider the following 👇, but consider the value of baseURL first (local Valet environment: no need for a WebServer)…
+      // command: process.env.CI ? 'vite preview --port 5173' : 'vite dev',
       command: 'npm run preview',
       url: baseURL,
       ignoreHTTPSErrors: true,

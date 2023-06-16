@@ -1,43 +1,68 @@
 import { test, expect } from '@playwright/test'
-import { isInvalidUrl } from './utils/url.mjs'
+import { isNotAnchorLink, isInvalidUrl, getAllHrefAttr, isAnchorLink } from './utils/url.mjs'
 
-test.beforeEach(async ({ page }) => {
-  await page.goto('/')
-})
-
-test('All links have a non-empty `href` attribute', async ({ page }) => {
-  const badLinksCount = await page.locator('css=a:not([href]), a[href=""]').count()
-  expect(badLinksCount).toBe(0)
-})
-
-test('All links have a valid external URL', async ({ page }) => {
-  const a = page.locator('a')
-
+test.describe('links', () => {
   /**
-   * Gather all `href` attributes from `<a>` elements.
-   *
-   * We use `.getAttribute('href')` instead of `.href` because the latter one
-   * resolves to a relative URL when the URL protocol is missing. It works
-   * for this website where all the links are expected to be external.
-   *
-   * - `link.getAttribute('href')`: 'something' (invalid URL)
-   * - resolved `link.href`: 'http://127.0.0.1:5173/something' (valid URL)
+   * @type {import('@playwright/test').Page}
    */
-  const urls = await a.evaluateAll($els => $els.map(link => link.getAttribute('href')))
+  let page
 
-  const invalidUrls = urls.filter(isInvalidUrl)
+  const $links = () => page.locator('a')
+  const $anchorLinks = () => page.locator('a[href^="#"]') // `href=#…`
 
-  // Prepare error message with the list of invalid URLs.
+  test.beforeAll(async ({ browser }) => page = await browser.newPage())
+  test.afterAll(async () => await page.close())
+  test.beforeEach(async () => await page.goto('/'))
 
-  if (invalidUrls.length) {
-    const urlStr = invalidUrls.length > 1 ? 'URLs' : 'URL'
-    var errorStr = `${invalidUrls.length} invalid ${urlStr}: ${invalidUrls.join(', ')}`
-  }
+  test('All links have a valid `href` attribute', async () => {
+    // @todo: improve this
+    const badNonAnchorLinks = (await $links().evaluateAll(getAllHrefAttr)).filter(isInvalidUrl).filter(isNotAnchorLink)
+    expect(badNonAnchorLinks).toHaveLength(0)
+  })
 
-  expect(invalidUrls.length, errorStr).toBe(0)
-})
+  test('All external links have a valid URL', async () => {
+    const externalUrls = (await $links().evaluateAll(getAllHrefAttr)).filter(isNotAnchorLink)
 
-test('It links to the source code from the footer', async ({ page }) => {
-  const repositoryLink = page.locator('footer [itemprop="codeRepository"]')
-  await expect(repositoryLink).toHaveAttribute('href', /github.com/)
+    const invalidUrls = externalUrls.filter(isInvalidUrl)
+
+    // Prepare error message with the list of invalid URLs.
+
+    if (invalidUrls.length) {
+      const urlStr = invalidUrls.length == 1 ? 'URL' : 'URLs'
+      var errorStr = `${invalidUrls.length} invalid ${urlStr}: ${invalidUrls.join(', ')}`
+    }
+
+    expect(externalUrls, errorStr).toHaveLength(externalUrls.length - invalidUrls.length)
+  })
+
+  test('Each anchor link has 1 matching target', async () => {
+    const hashes = await $anchorLinks().evaluateAll(getAllHrefAttr)
+
+    // Check the targets of anchor links. Each hash must have exactly 1 target.
+
+    const invalidHashs = []
+
+    await Promise.allSettled(hashes.map(hash =>
+      page.locator(hash)
+        .count()
+        .then(count => {
+          if (count !== 1) { throw new Error() }
+        })
+        .catch(() => invalidHashs.push(hash))
+    ))
+
+    // Prepare error message with the list of invalid hashes.
+
+    if (invalidHashs.length) {
+      const hashStr = invalidHashs.length == 1 ? 'hash' : 'hashes'
+      var errorStr = `${invalidHashs.length} invalid ${hashStr}: ${invalidHashs.join(', ')}`
+    }
+
+    expect(invalidHashs, errorStr).toHaveLength(0)
+  })
+
+  test('It links to the source code from the footer', async () => {
+    const repositoryLink = page.locator('footer [itemprop="codeRepository"]')
+    await expect(repositoryLink).toHaveAttribute('href', /github.com/)
+  })
 })

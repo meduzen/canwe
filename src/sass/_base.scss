@@ -119,6 +119,11 @@ html {
   background: v(bg);
   color: v(primary);
 
+  @media (--motion) {
+    scroll-behavior: smooth;
+    scroll-padding-block-start: 2.5em;
+  }
+
   @media (--phone) {
     font-size: 62.5%;
   }
