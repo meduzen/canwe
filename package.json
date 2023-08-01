@@ -20,7 +20,7 @@
     },
     "devDependencies": {
         "@axe-core/playwright": "^4.7",
-        "@playwright/test": "^1.30.0",
+        "@playwright/test": "^1.36.2",
         "axe-html-reporter": "^2.2.3",
         "cssnano": "^6",
         "double-dash.scss": "^1",
