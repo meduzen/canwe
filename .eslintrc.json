@@ -12,7 +12,7 @@
         "tests/results/**/*"
     ],
     "extends": [
-        "plugin:playwright/playwright-test"
+        "plugin:playwright/recommended"
     ],
     "parserOptions": {
         "sourceType": "module",
