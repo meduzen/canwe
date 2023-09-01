@@ -25,7 +25,7 @@
         "cssnano": "^6",
         "double-dash.scss": "^1",
         "eslint-formatter-codeframe": "^7.32.1",
-        "eslint-plugin-playwright": "^0.15.2",
+        "eslint-plugin-playwright": "^0.16.0",
         "family.scss": "^1.0",
         "hsl.scss": "^1.0.1",
         "husky": "^8.0.3",
