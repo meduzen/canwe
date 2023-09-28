@@ -10,10 +10,25 @@
         "lint": "npx eslint --ext .js,.mjs ./",
         "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
         "postinstall": "rm -f .eslintcache && husky install",
+        "size": "size-limit",
         "test": "playwright test",
         "test:absolute-links": "lychee src/index.html",
         "test:ui": "playwright test --ui"
     },
+    "size-limit": [
+        {
+            "path": "public",
+            "brotli": true
+        },
+        {
+            "path": ["public/**/*.css"],
+            "brotli": true
+        },
+        {
+            "path": ["public/**/*.html"],
+            "brotli": true
+        }
+    ],
     "dependencies": {
         "easings.scss": "^1.0.0-rc.0",
         "normalize.css": "^8.0"
@@ -21,6 +36,7 @@
     "devDependencies": {
         "@axe-core/playwright": "^4.7",
         "@playwright/test": "^1.30.0",
+        "@size-limit/preset-app": "^9.0.0",
         "axe-html-reporter": "^2.2.3",
         "cssnano": "^6",
         "double-dash.scss": "^1",
@@ -33,6 +49,7 @@
         "postcss-safe-area": "0.1",
         "postcss-short-size": "^4.0",
         "sass": "^1",
+        "size-limit": "^9.0.0",
         "v.scss": "^1.2.1",
         "vite": "^4",
         "vite-plugin-eslint": "^1.8.1",
