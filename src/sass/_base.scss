@@ -1,3 +1,8 @@
+// Abstract (mixins and functions)
+@use 'double-dash.scss' as mq;
+@use './abstract' as *;
+@use './variables' as *;
+
 $global-w: (
   'phone': 20em, // 320px
   'tablet-7': 37.5em, // 600px
@@ -5,7 +10,7 @@ $global-w: (
   'grid': 65em, // 1040px
 );
 
-@include --w($global-w);
+@include mq.w($global-w);
 
 :root {
 
@@ -30,20 +35,20 @@ $global-w: (
   --primary-s: var(--black-s);
   --primary-l: var(--black-l);
   --primary-a: var(--black-a);
-  --primary: hsla(var(--primary-h), var(--primary-s), var(--primary-l), var(--primary-a));
+  --primary: hsl(var(--primary-h) var(--primary-s) var(--primary-l) / var(--primary-a));
 
   --bg-h: var(--white-h);
   --bg-s: var(--white-s);
   --bg-l: var(--white-l);
   --bg-a: var(--white-a);
-  --bg: hsla(var(--bg-h), var(--bg-s), var(--bg-l), var(--bg-a));
-  // --bg: hsla(0, 0%, 100%, 1);
+  --bg: hsl(var(--bg-h) var(--bg-s) var(--bg-l) / var(--bg-a));
+  // --bg: hsl(0 0% 100%);
 
   --accent-h: var(--red-h);
   --accent-s: var(--red-s);
   --accent-l: var(--red-l);
   --accent-a: var(--red-a);
-  --accent: hsla(var(--accent-h), var(--accent-s), var(--accent-l), var(--accent-a));
+  --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / var(--accent-a));
 
   @media (--dark) {
     --primary-h: var(--white-h);
@@ -69,7 +74,7 @@ $global-w: (
   --safe-bottom: var(--safe-area-bottom);
   --safe-left: var(--safe-area-left, var(--x-space));
 
-  @supports (top: #{'max(0px)'}) {
+  @supports (top: max(0px)) {
     --safe-area-top: env(safe-area-inset-top, 0);
     --safe-area-right: max(env(safe-area-inset-right), var(--x-space));
     --safe-area-bottom: env(safe-area-inset-bottom, 0);
@@ -114,6 +119,11 @@ html {
   background: v(bg);
   color: v(primary);
 
+  @media (--motion) {
+    scroll-behavior: smooth;
+    scroll-padding-block-start: 2.5em;
+  }
+
   @media (--phone) {
     font-size: 62.5%;
   }
@@ -143,16 +153,16 @@ ol {
   list-style-type: none;
 }
 
-dl,
-dd {
-  margin: 0;
-}
+// dl,
+// dd {
+//   margin: 0;
+// }
 
 /* QUOTES */
 
-blockquote {
-  margin: 0;
-}
+// blockquote {
+//   margin: 0;
+// }
 
 /* IMAGES */
 
@@ -308,27 +318,19 @@ abbr[title] {
 
 /* ADDRESS */
 
-address {
-  font-style: normal;
-}
+// address {
+//   font-style: normal;
+// }
 
 /* LINKS */
 
 a {
   color: v(primary);
 
-  // transition: color .15s $in-out-quad;
-
-  // @media (--phone) {
-  //   text-decoration: none;
-  // }
-
-  // &:focus,
-  // &:hover {
-  //   color: v(accent);
-
-  //   @include outline(v(accent), .1rem, dashed, .3rem);
-  // }
+  &:focus-visible {
+    outline: .2rem solid;
+    border-radius: .1rem;
+  }
 }
 
 /* TITLES */
@@ -343,9 +345,9 @@ h6 {
     margin: 0;
   }
 
-  em {
-    font-style: normal;
-  }
+  // em {
+  //   font-style: normal;
+  // }
 }
 
 /* SVG */

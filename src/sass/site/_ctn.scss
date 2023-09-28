@@ -1,52 +1,74 @@
+@use '../abstract' as *;
+@use '../variables' as *;
+
+// Site card
+
 .site {
   position: relative;
   padding: 2rem;
 
   background: v(site-bg, v(primary));
   border-radius: v(card-radius);
+  box-shadow: hsl(0 0% 0% / .1) 0 .1rem .6rem 0;
   color: v(site-primary, v(bg));
 
-  // Fix Chrome 80 visual glitch on hover.
-  // https://github.com/meduzen/canwe/issues/17
-  transform: scale(.999);
+  // When the custom property isn’t valid, the whole rule is ignored.
+  transform: translateY(calc(v(site-highlight-card) * -.3rem));
 
-  transition: transform .65s $out-cubic;
+  transition: transform .3s $out-cubic;
 
-  // Light theme shadow
-  @media (--light) {
-    box-shadow:
-      hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
-      hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
+  @media (--dark) {
+    box-shadow: hsl(0 0% 0% / .3) 0 .1rem .6rem 0;
   }
 
-  @media (--phone) {
-    &:hover, &:focus-within {
-      transform: scale(1.02);
+  // Shows interactions when viewport not too small.
 
-      &::after {
-        opacity: 1;
+  @media (--phone) {
+    --site-outline-distance: .6rem;
+    --site-outline-w: .2rem;
+
+    // Card shadow and vertical translation
+    &:hover, &:focus-within {
+      --site-highlight-card: 1;
+    }
+
+    // Show the card outline when an inner link should show its focus ring.
+    @supports selector(*:has(:focus-visible)) {
+      &:has(:focus-visible) {
+        --site-outline-visible: 1;
+      }
+    }
+
+    // Fallback for focus ring.
+    @supports not selector(*:has(:focus-visible)) {
+      &:focus-within {
+        --site-outline-visible: 1;
       }
     }
   }
 
-  // Light theme shadow, visible on hover and focus
+  @media (--tablet-10) {
+    --site-outline-distance: .7rem;
+    --site-outline-w: .3rem;
+  }
+
+  // Additional shadow on hover and focus
 
   &::after {
+    content: '';
     position: absolute;
     inset: 0;
 
     pointer-events: none;
 
     border-radius: v(card-radius);
-    box-shadow:
-      hsl(0, 0%, 0%, .2) 0 .3rem 1.6rem 0,
-      hsl(0, 0%, 0%, .08) 0 .1rem .4rem 0;
-    opacity: 0;
+    box-shadow: hsl(0 0% 0% / .05) 0 1rem 5rem 1rem;
+    opacity: v(site-highlight-card, 0);
 
-    transition: opacity .65s $out-cubic;
+    transition: opacity .3s $out-cubic;
 
-    @media (--light) {
-      content: '';
+    @media (--dark) {
+      box-shadow: hsl(0 0% 0% / .3) 0 .1rem .6rem 0;
     }
   }
 }

@@ -1,0 +1,33 @@
+# https://github.com/lycheeverse/lychee-action/
+
+name: Links validity (twice a month)
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "08 02 9,24 * *"
+
+jobs:
+
+  linkChecker:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v1.8.0
+        with:
+          args: 'https://canwe.dev'
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Create issue
+        if: env.lychee_exit_code != 0
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: Lychee Report
+          content-filepath: ./lychee/out.md
+          labels: ci

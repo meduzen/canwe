@@ -1,40 +1,4 @@
-.skip-link {
-  position: absolute;
-  top: 0;
-  justify-self: center;
-
-  margin: 0 auto;
-  padding: 1.2em;
-
-  white-space: nowrap;
-
-  &:not(:focus):not(:active) {
-    // negative margin + max-height 0 = prevent layout difference before focus
-    margin-block-start: -3.8em; // block padding + line-height
-    max-block-size: 0; // prevent layout vertical shift
-
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-
-  &:focus {
-    transition: opacity .3s $in-out-quad;
-    transition-property: opacity, transform;
-
-    // Dark theme uses the default focus ring, light theme uses a box shadow.
-    @media (--light) {
-      outline: none;
-    }
-  }
-
-  // See previous comment.
-  @media (--light) {
-    border-radius: 0 0 v(card-radius) v(card-radius);
-    box-shadow:
-      hsl(0, 0%, 0%, .1) 0 .3rem .6rem 0,
-      hsl(0, 0%, 0%, .08) 0 .1rem .3rem 0;
-  }
-}
+@use '../abstract' as *;
 
 .header {
   @media (--phone) {

@@ -1,30 +1,44 @@
 {
     "private": true,
     "engines": {
-        "node": ">=12.13"
+        "node": ">=18"
     },
     "scripts": {
         "dev": "vite --mode=development",
         "build": "vite build --mode=production",
         "preview": "vite preview",
-        "test": "playwright test"
+        "lint": "npx eslint --ext .js,.mjs ./",
+        "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
+        "postinstall": "rm -f .eslintcache && husky install",
+        "size": "size-limit",
+        "test": "playwright test",
+        "test:absolute-links": "lychee src/index.html",
+        "test:ui": "playwright test --ui"
     },
     "dependencies": {
+        "easings.scss": "^1.0.0-rc.0",
         "normalize.css": "^8.0"
     },
     "devDependencies": {
-        "@playwright/test": "^1.22.0",
-        "cssnano": "^5",
-        "dotenv": "^16",
-        "double-dash.scss": "^0.8",
-        "easings.scss": "^0.3",
+        "@axe-core/playwright": "^4.7",
+        "@playwright/test": "^1.30.0",
+        "@size-limit/preset-app": "^9.0.0",
+        "axe-html-reporter": "^2.2.3",
+        "cssnano": "^6",
+        "double-dash.scss": "^1",
+        "eslint-formatter-codeframe": "^7.32.1",
+        "eslint-plugin-playwright": "^0.16.0",
         "family.scss": "^1.0",
         "hsl.scss": "^1.0.1",
-        "postcss-preset-env": "^7",
+        "husky": "^8.0.3",
+        "postcss-preset-env": "^9",
         "postcss-safe-area": "0.1",
         "postcss-short-size": "^4.0",
-        "sass": "^1.49.9",
+        "sass": "^1",
+        "size-limit": "^9.0.0",
         "v.scss": "^1.2.1",
-        "vite": "^3"
+        "vite": "^4",
+        "vite-plugin-eslint": "^1.8.1",
+        "vite-plugin-html": "^3.2.0"
     }
 }
