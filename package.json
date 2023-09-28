@@ -15,28 +15,6 @@
         "test:absolute-links": "lychee src/index.html",
         "test:ui": "playwright test --ui"
     },
-    "size-limit": [
-        {
-            "name": "Everything",
-            "path": "public",
-            "brotli": true
-        },
-        {
-            "name": "HTML",
-            "path": ["public/**/*.html"],
-            "brotli": true
-        },
-        {
-            "name": "CSS",
-            "path": ["public/**/*.css"],
-            "brotli": true
-        },
-        {
-            "name": "Fonts",
-            "path": ["public/fonts"],
-            "brotli": true
-        }
-    ],
     "dependencies": {
         "easings.scss": "^1.0.0-rc.0",
         "normalize.css": "^8.0"
