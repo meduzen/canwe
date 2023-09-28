@@ -17,15 +17,23 @@
     },
     "size-limit": [
         {
+            "name": "Everything",
             "path": "public",
             "brotli": true
         },
         {
+            "name": "HTML",
+            "path": ["public/**/*.html"],
+            "brotli": true
+        },
+        {
+            "name": "CSS",
             "path": ["public/**/*.css"],
             "brotli": true
         },
         {
-            "path": ["public/**/*.html"],
+            "name": "Fonts",
+            "path": ["public/fonts"],
             "brotli": true
         }
     ],
