@@ -36,11 +36,16 @@
   --site-bg: hsl(198 81% 73%);
 }
 
+.mozillaspecificationpositions {
+  --site-primary: hsl(0 0% 97%);
+  --site-bg: hsl(0 0% 20%);
+}
+
 .privacytests {
   --site-accent: hsl(106 55% 44%);
 }
 
-.webkitstatus {
+.webkitstandardspositions {
   --site-primary: hsl(0 0% 100% / .85);
 
   // https://webkit.org/wp-content/themes/webkit/images/webkit.svg
