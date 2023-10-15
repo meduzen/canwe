@@ -1,6 +1,6 @@
 import postcssPresetEnv from 'postcss-preset-env'
 import postcssSafeArea from 'postcss-safe-area'
-import postcssShortSize from 'postcss-short-size'
+import postcssSize from 'postcss-size'
 import cssNano from 'cssnano'
 
 const postcssPresetEnvOptions = {
@@ -17,7 +17,7 @@ const postcssPresetEnvOptions = {
 
 export default ({ options, env }) => ({
   plugins: [
-    postcssShortSize(),
+    postcssSize(),
     postcssSafeArea(),
     postcssPresetEnv(postcssPresetEnvOptions),
     env === 'production' ? cssNano() : false,

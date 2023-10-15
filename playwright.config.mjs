@@ -1,22 +1,15 @@
-import dotenv from 'dotenv'
+import { env } from 'node:process'
 import { devices } from '@playwright/test'
 import { dateToKebab } from './tests/utils/date.mjs'
 import { isInvalidUrl } from './tests/utils/url.mjs'
 
-/**
- * Inject `.env` file entries into `process.env` if `.env` file exists.
- * If a variable is transmitted through the command line and already
- * exists in the `.env` file, the one from the command line wins.
- */
-dotenv.config()
-
-const baseURL = process.env.PW_BASE_URL
+const baseURL = env.PW_BASE_URL
 
 if (isInvalidUrl(baseURL)) {
   throw new Error(`PW_BASE_URL is not a valid URL: ${baseURL}`)
 }
 
-const filename = `${process.env.SERVER_HOST}-${dateToKebab(new Date())}`
+const filename = `${env.SERVER_HOST}-${dateToKebab(new Date())}`
 
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 export default {
@@ -27,19 +20,19 @@ export default {
     filename,
   },
 
-  forbidOnly: !!process.env.CI,
+  forbidOnly: !!env.CI,
 
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : undefined,
+  retries: env.CI ? 2 : 0,
+  workers: env.CI ? 2 : undefined,
 
-  ...(process.env.CI
+  ...(env.CI
     ? { webServer: {
       // @todo: consider the following 👇, but consider the value of baseURL first (local Valet environment: no need for a WebServer)…
-      // command: process.env.CI ? 'vite preview --port 5173' : 'vite dev',
+      // command: env.CI ? 'vite preview --port 5173' : 'vite dev',
       command: 'npm run preview',
       url: baseURL,
       ignoreHTTPSErrors: true,
-      reuseExistingServer: !process.env.CI,
+      reuseExistingServer: !env.CI,
     } }
     : null
   ),
@@ -66,9 +59,9 @@ export default {
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
     // },
-  ].filter(({ name }) => name == 'chromium' || !process.env.CI),
+  ].filter(({ name }) => name == 'chromium' || !env.CI),
 
-  reporter: process.env.CI
+  reporter: env.CI
     ? [['github'], ['html']]
     : [
       // ['dot'],
