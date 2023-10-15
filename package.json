@@ -1,12 +1,12 @@
 {
     "private": true,
     "engines": {
-        "node": ">=18"
+        "node": ">=20.6"
     },
     "scripts": {
-        "dev": "vite --mode=development",
-        "build": "vite build --mode=production",
-        "preview": "vite preview",
+        "dev": "node --env-file=.env node_modules/vite/bin/vite --mode=development",
+        "build": "node --env-file=.env node_modules/vite/bin/vite build --mode=production",
+        "preview": "node --env-file=.env node_modules/vite/bin/vite preview",
         "lint": "npx eslint --ext .js,.mjs ./",
         "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
         "postinstall": "rm -f .eslintcache && husky install",
