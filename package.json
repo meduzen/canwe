@@ -35,7 +35,7 @@
         "postcss-safe-area": "0.1",
         "postcss-size": "^5.0",
         "sass": "^1",
-        "size-limit": "^9.0.0",
+        "size-limit": "^10.0.1",
         "v.scss": "^1.2.1",
         "vite": "^4",
         "vite-plugin-eslint": "^1.8.1",
