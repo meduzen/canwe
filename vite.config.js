@@ -83,7 +83,7 @@ export default defineConfig({
      */
     createHtmlPlugin({
       minify: {
-        collapseWhitespace: true,
+        collapseWhitespace: false, // create bug: https://github.com/meduzen/canwe/issues/129
         keepClosingSlash: false,
         removeComments: true,
         // removeRedundantAttributes: true,
