@@ -22,7 +22,7 @@
     "devDependencies": {
         "@axe-core/playwright": "^4.7",
         "@playwright/test": "^1.38.1",
-        "@size-limit/preset-app": "^10.0.0",
+        "@size-limit/preset-app": "^11.0.0",
         "axe-html-reporter": "^2.2.3",
         "cssnano": "^6",
         "double-dash.scss": "^1",
@@ -35,7 +35,7 @@
         "postcss-safe-area": "0.1",
         "postcss-size": "^5.0",
         "sass": "^1",
-        "size-limit": "^10.0.0",
+        "size-limit": "^11.0.0",
         "v.scss": "^1.2.1",
         "vite": "^4",
         "vite-plugin-eslint": "^1.8.1",
