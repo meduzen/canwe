@@ -1,4 +1,5 @@
 import { resolve } from 'node:path'
+import { homedir } from 'node:os'
 import { env } from 'node:process'
 import { defineConfig } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
@@ -31,8 +32,7 @@ const host = env?.SERVER_HOST ?? null
 let https = env?.SERVER_HTTPS === 'true'
 
 if (https && host && env.SERVER_CERTIFICATES_DIR) {
-  const userDir = require('os').homedir()
-  const certificatesPath = `${userDir}/${env.SERVER_CERTIFICATES_DIR}/${host}`
+  const certificatesPath = `${homedir()}/${env.SERVER_CERTIFICATES_DIR}/${host}`
 
   https = {
     key: `${certificatesPath}.key`,

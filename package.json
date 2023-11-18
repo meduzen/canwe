@@ -3,6 +3,7 @@
     "engines": {
         "node": ">=20.6"
     },
+    "type": "module",
     "scripts": {
         "dev": "node --env-file=.env node_modules/vite/bin/vite --mode=development",
         "build": "node --env-file=.env node_modules/vite/bin/vite build --mode=production",
