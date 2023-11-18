@@ -37,7 +37,7 @@
         "sass": "^1",
         "size-limit": "^11.0.0",
         "v.scss": "^1.2.1",
-        "vite": "^4",
+        "vite": "^5",
         "vite-plugin-eslint": "^1.8.1",
         "vite-plugin-html": "^3.2.0"
     }
