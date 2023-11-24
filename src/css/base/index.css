@@ -1,3 +1,8 @@
+/**
+ * Files in this folder are heavily inspired by @csstools/normalize.css
+ * (https://github.com/csstools/normalize.css).
+ */
+
 @import url('all.css');
 @import url('html-and-body.css');
 /* @import url('address.css'); */

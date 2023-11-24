@@ -16,9 +16,6 @@
         "test:absolute-links": "lychee src/index.html",
         "test:ui": "node --env-file=.env node_modules/@playwright/test/cli test --ui"
     },
-    "dependencies": {
-        "normalize.css": "^8.0"
-    },
     "devDependencies": {
         "@axe-core/playwright": "^4.7",
         "@playwright/test": "^1.38.1",
