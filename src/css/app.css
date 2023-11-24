@@ -4,6 +4,5 @@
 @import url('./config/index.css');
 @import url('./base/index.css');
 @import url('./utils/index.css');
-/* @import url('./components/index.css'); */
-@import url('./site/index.css');
+@import url('./components/index.css');
 @import url('./layout/index.css');

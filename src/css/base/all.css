@@ -16,9 +16,3 @@
 * {
   touch-action: manipulation;
 }
-
-// @todo
-::selection {
-  background: var(--accent);
-  color: var(--bg);
-}

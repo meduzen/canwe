@@ -1,7 +1,4 @@
 :root {
-
-  /* Distances */
-
   --x-space: .5rem;
   @media (--phone) { --x-space: 2rem; }
   @media (--tablet-7) { --x-space: 4rem; }

@@ -67,15 +67,15 @@
 * Remove the inner border and padding of focus outlines in Firefox.
 */
 
-// :where(button, input[type="color" i])::-moz-focus-inner {
-//   border-style: none;
-//   padding: 0;
-// }
+:where(button, input[type="color" i])::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
 
 /**
 * Restore the focus outline styles unset by the previous rule in Firefox.
 */
 
-// :where(button, input[type="color" i])::-moz-focusring {
-//   outline: 1px dotted ButtonText;
-// }
+:where(button, input[type="color" i])::-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
