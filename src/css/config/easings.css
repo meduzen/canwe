@@ -1,0 +1,5 @@
+:root {
+  --in-out-quad: cubic-bezier(.455, .03, .515, .955);
+  --in-out-quad-r: cubic-bezier(.485, .045, .545, .97);
+  --out-cubic: cubic-bezier(.215, .61, .355, 1);
+}

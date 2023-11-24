@@ -1,0 +1,17 @@
+// hidpi
+@custom-media --hidpi (resolution >= 1.3dppx, resolution >= 124.8dpi);
+@custom-media --hdpi (resolution >= 1.3dppx, resolution >= 124.8dpi);
+
+// ldpi
+@custom-media --ldpi (resolution < 1.3dppx, resolution < 124.8dpi);
+@custom-media --lowdpi (resolution < 1.3dppx, resolution < 124.8dpi);
+
+// 1x
+@custom-media --resolution-from-1x (resolution >= 1dppx, resolution >= 96dpi);
+@custom-media --resolution-1x (resolution: 1dppx, resolution: 96dpi);
+@custom-media --resolution-to-1x (resolution < 1dppx, resolution < 96dpi);
+
+// 2x
+@custom-media --resolution-from-2x (resolution >= 2dppx, resolution >= 192dpi);
+@custom-media --resolution-2x (resolution: 2dppx, resolution: 192dpi);
+@custom-media --resolution-to-2x (resolution < 2dppx, resolution < 192dpi);

@@ -1,0 +1,44 @@
+/* EXTERNAL */
+
+// :where(figure) {
+//   margin: 0;
+
+//   font-size: 0;
+// }
+
+// :where(img) {
+//   position: relative;
+//   // z-index: 1;
+//   display: block;
+//   size: 100% auto;
+
+//   &::selection {
+//     background: var(--accent);
+//   }
+
+//   // // Not loading images.
+//   // &::after {
+//   //   content: '\0274f' ' ' attr(alt);
+//   //   position: absolute;
+//   //   top: 0;
+//   //   left: 0;
+//   //   display: flex;
+//   //   justify-content: center;
+//   //   align-items: center;
+//   //   size: 100% 100%;
+//   //   padding: 0 1em;
+
+//   //   color: $jumbo;
+//   //   background: lighten($jumbo, 21%);
+
+//   //   font-size: 1.7rem;
+//   // }
+// }
+
+/* INLINE */
+
+:where(svg) {
+  pointer-events: none;
+
+  * { transform-origin: 50% 50%; }
+}

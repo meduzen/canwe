@@ -1,0 +1,4 @@
+:where(hr) {
+  height: 0;
+  color: inherit;
+}
