@@ -1,0 +1,24 @@
+/* BLOCK */
+
+:where(blockquote) {
+  margin: 0;
+}
+
+/* INLINE */
+
+:where(b, strong) {
+  font-weight: bolder;
+}
+
+:where(small) {
+  font-size: 80%;
+}
+
+:where(abbr[title]) {
+  &:not(:hover) {
+    @media (--phone) {
+      border: none;
+      text-decoration: none;
+    }
+  }
+}

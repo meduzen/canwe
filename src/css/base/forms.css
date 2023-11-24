@@ -1,0 +1,81 @@
+/* LEGEND */
+
+:where(fieldset) {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+/* FIELDS */
+
+:where(button, input, select, textarea, option) {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+:where(input) {
+  appearance: none;
+  border-radius: 0; // Safari iOS
+  line-height: inherit;
+}
+
+:where(input, button) {
+  background: transparent;
+  border: none;
+  // color:
+
+  // &:focus { // check if focus-visible would be enough
+  //   outline: none;
+  // }
+}
+
+:where(button) {
+  appearance: button;
+  user-select: none;
+
+  cursor: pointer;
+
+  * { pointer-events: none; }
+}
+
+:where(input[type="search" i]) {
+  appearance: textfield;
+  outline-offset: -2px;
+}
+
+// :where(textarea) {
+//   resize: vertical; // or none
+// }
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+* Remove the inner border and padding of focus outlines in Firefox.
+*/
+
+:where(button, input[type="color" i])::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+* Restore the focus outline styles unset by the previous rule in Firefox.
+*/
+
+:where(button, input[type="color" i])::-moz-focusring {
+  outline: 1px dotted ButtonText;
+}

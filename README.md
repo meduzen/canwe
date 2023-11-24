@@ -10,15 +10,18 @@ Open an [issue](https://github.com/meduzen/canwe/issues) or (faster) a pull requ
 
 ### Content
 
-All good `public/index.html` editing.
+Old good `public/index.html` editing.
 
 ### Styles
 
 - `npm install`
-- create `.env` from `.env.example`, then edit it
+- (optional) create `.env` from `.env.example`, then edit it
 - _(local)_ `npm run dev` or _(prod)_ `npm run build`
 
-Websites colors are CSS custom properties in [`/src/sass/site/_colors.scss`](/src/sass/site/_colors.scss)
+Websites colors are CSS custom properties in [`/src/css/config/sites.css`](/src/css/config/sites.css).
+
+> [!NOTE]
+> Thou plain CSS is used in this project, you can write inline CSS comments using `//` thanks to the [PostCSS config](./postcss.config.mjs#L27-L31).
 
 ### Tests
 

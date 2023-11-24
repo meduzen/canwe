@@ -1,0 +1,52 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/monochrome
+
+@custom-media --monochrome (monochrome);
+@custom-media --not-monochrome (monochrome: 0);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-gamut
+
+@custom-media --srgb (color-gamut: srgb);
+@custom-media --p3 (color-gamut: p3);
+@custom-media --rec2020 (color-gamut: rec2020);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors
+
+//inverted-colors: inverted
+@custom-media --inverted-colors (inverted-colors: inverted);
+@custom-media --colors-inverted (inverted-colors: inverted);
+
+//inverted-colors: none
+@custom-media --no-inverted-colors (inverted-colors: none);
+@custom-media --colors-not-inverted (inverted-colors: none);
+
+// https://drafts.csswg.org/mediaqueries-5/#prefers-contrast
+
+// prefers-contrast: no-preference
+@custom-media --any-contrast (prefers-contrast: no-preference);
+@custom-media --normal-contrast (prefers-contrast: no-preference);
+@custom-media --no-contrast-preference (prefers-contrast: no-preference);
+
+// prefers-contrast: more
+@custom-media --high-contrast (prefers-contrast: more);
+@custom-media --more-contrast (prefers-contrast: more);
+@custom-media --contrasted (prefers-contrast: more);
+
+// prefers-contrast: less
+@custom-media --low-contrast (prefers-contrast: less);
+@custom-media --less-contrast (prefers-contrast: less);
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
+
+@custom-media --forced-colors (forced-colors: active);
+@custom-media --no-forced-colors (forced-colors: none);
+
+// https://drafts.csswg.org/mediaqueries-5/#dynamic-range
+
+// dynamic-range: high
+@custom-media --hdr (dynamic-range: high);
+@custom-media --high-dynamic-range (dynamic-range: high);
+
+// dynamic-range: standard
+@custom-media --no-hdr (dynamic-range: standard);
+@custom-media --no-dynamic-range (dynamic-range: standard);
+@custom-media --standard-dynamic-range (dynamic-range: standard);

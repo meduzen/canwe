@@ -1,0 +1,71 @@
+.main {
+  @media (--tablet-7) {
+    padding-bottom: 3rem;
+  }
+}
+
+.section {
+  margin-top: 4rem;
+
+  @media (--tablet-7) {
+    margin-top: 7rem;
+  }
+}
+
+.section__title {
+  margin-bottom: 1.2em;
+}
+
+/**
+ * Anchor link for section title.
+ *
+ * - Anchors icons are only visible on devices with an accurate pointer.
+ * - The icon is after the text on narrow screens, and before on others.
+ *
+ * Approach chosen: https://codepen.io/thierry/full/qBqYmgw, explained in
+ * https://github.com/valeriangalliat/markdown-it-anchor/issues/82#issuecomment-788581238 and found in
+ * https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/#what-are-anchor-links-exactly%3F.
+ */
+
+.section__titleLink {
+  --icon-anchor-size: 1.1em;
+
+  position: relative;
+  display: inline-flex;
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+
+  @media (--any-pointer-fine) and (--tablet-7) {
+    margin-inline-start: calc(var(--icon-anchor-size) * -1 - .25em);
+  }
+}
+
+.section__anchor {
+  size: var(--icon-anchor-size);
+  transform: translateY(23%); // fix vertical alignment to center the icon
+  // @todo: remove `transform` 👆, use `translate` 👇 around 2025.
+  // translate: 0 23%; // fix vertical alignment to center the icon
+
+  pointer-events: revert; // revert to default (theoretically: `auto`)
+
+  opacity: .3;
+
+  @media (--before-phone) {
+    display: none;
+  }
+
+  @media (--before-tablet-7) {
+    margin-inline-end: calc(var(--icon-anchor-size) / 4);
+  }
+
+  @media (--tablet-7) {
+    margin-inline-end: .25em;
+  }
+
+  // Hide the anchor icon (e.g. on touch screens without mouse).
+  @media not (--any-pointer-fine) {
+    display: none;
+  }
+}
