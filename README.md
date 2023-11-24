@@ -21,7 +21,7 @@ Old good `public/index.html` editing.
 Websites colors are CSS custom properties in [`/src/css/config/sites.css`](/src/css/config/sites.css).
 
 > [!NOTE]
-> Thou plain CSS is used in this project, you can write inline CSS comments using `//` thanks to the [PostCSS config](./postcss.config.mjs).
+> Thou plain CSS is used in this project, you can write inline CSS comments using `//` thanks to the [PostCSS config](./postcss.config.mjs#L27-L31).
 
 ### Tests
 
