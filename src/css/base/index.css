@@ -1,6 +1,8 @@
 /**
  * Files in this folder are heavily inspired by @csstools/normalize.css
  * (https://github.com/csstools/normalize.css).
+ *
+ * Unused base files are commented.
  */
 
 @import url('all.css');
