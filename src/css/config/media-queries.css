@@ -1,0 +1,10 @@
+@custom-media --before-phone (width < 20em); // 320px
+@custom-media --phone (width >= 20em); // 320px
+
+@custom-media --before-tablet-7 (width < 37.5em); // < 600px
+@custom-media --tablet-7 (width >= 37.5em); // 600px
+
+@custom-media --tablet-10 (width >= 52.5em); // 840px
+
+@custom-media --grid (width >= 65em); // 1040px
+@custom-media --before-grid (width < 65em); // < 1040px

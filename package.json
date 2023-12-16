@@ -1,43 +1,36 @@
 {
     "private": true,
     "engines": {
-        "node": ">=18"
+        "node": ">=20.6"
     },
+    "type": "module",
     "scripts": {
-        "dev": "vite --mode=development",
-        "build": "vite build --mode=production",
-        "preview": "vite preview",
+        "dev": "node --env-file=.env node_modules/vite/bin/vite --mode=development",
+        "build": "node --env-file=.env node_modules/vite/bin/vite build --mode=production",
+        "preview": "node --env-file=.env node_modules/vite/bin/vite preview",
         "lint": "npx eslint --ext .js,.mjs ./",
         "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
         "postinstall": "rm -f .eslintcache && husky install",
         "size": "size-limit",
-        "test": "playwright test",
+        "test": "node --env-file=.env node_modules/@playwright/test/cli test",
         "test:absolute-links": "lychee src/index.html",
-        "test:ui": "playwright test --ui"
-    },
-    "dependencies": {
-        "easings.scss": "^1.0.0-rc.0",
-        "normalize.css": "^8.0"
+        "test:ui": "node --env-file=.env node_modules/@playwright/test/cli test --ui"
     },
     "devDependencies": {
         "@axe-core/playwright": "^4.7",
-        "@playwright/test": "^1.30.0",
-        "@size-limit/preset-app": "^9.0.0",
+        "@playwright/test": "^1.40.1",
+        "@size-limit/preset-app": "^11.0.0",
         "axe-html-reporter": "^2.2.3",
         "cssnano": "^6",
-        "double-dash.scss": "^1",
         "eslint-formatter-codeframe": "^7.32.1",
-        "eslint-plugin-playwright": "^0.16.0",
-        "family.scss": "^1.0",
-        "hsl.scss": "^1.0.1",
+        "eslint-plugin-playwright": "^0.19.0",
         "husky": "^8.0.3",
         "postcss-preset-env": "^9",
         "postcss-safe-area": "0.1",
-        "postcss-short-size": "^4.0",
-        "sass": "^1",
-        "size-limit": "^9.0.0",
-        "v.scss": "^1.2.1",
-        "vite": "^4",
+        "postcss-scss": "^4.0.9",
+        "postcss-size": "^5.0",
+        "size-limit": "^11.0.0",
+        "vite": "^5",
         "vite-plugin-eslint": "^1.8.1",
         "vite-plugin-html": "^3.2.0"
     }

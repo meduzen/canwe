@@ -1,0 +1,10 @@
+:root {
+  --primary: hsl(0 0% 13%);
+  --accent: hsl(15 100% 50%);
+  --bg: hsl(0 0% 100%);
+
+  @media (--dark) {
+    --primary: hsl(0 0% 100%);
+    --bg: hsl(0 0% 13%);
+  }
+}

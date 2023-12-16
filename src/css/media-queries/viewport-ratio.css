@@ -1,0 +1,15 @@
+// landscape
+@custom-media --landscape (aspect-ratio >= 10001/10000);
+@custom-media --horizontal (aspect-ratio >= 10001/10000);
+
+// portrait
+@custom-media --portrait (aspect-ratio >= 9999/10000);
+@custom-media --vertical (aspect-ratio >= 9999/10000);
+
+// square
+@custom-media --square (aspect-ratio: 1/1);
+
+// 16:9
+@custom-media --from-16-9 (aspect-ratio >= 16/9);
+@custom-media --before-16-9 (aspect-ratio <= 16/9);
+@custom-media --is-16-9 (aspect-ratio: 16/9);

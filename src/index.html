@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="supported-color-schemes" content="dark light only"> <!-- macOS 10.14.4 compat -->
     <meta name="color-scheme" content="dark light only">
-    <link rel="stylesheet" href="/sass/app.scss">
+    <link rel="stylesheet" href="/css/app.css">
 
     <!-- Web Manifest -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -38,8 +38,6 @@
     <meta property="og:image:width" content="1711">
     <meta property="og:image:height" content="1131">
     <meta property="og:image:alt" content="Can We Use">
-    <meta property="twitter:image" content="https://canwe.dev/img/can-we-share.jpg">
-    <meta property="twitter:image:alt" content="Can We Use">
 </head>
 
 <body>
@@ -394,18 +392,6 @@
 
         <ul class="sites">
 
-            <!-- Webkit status -->
-            <li class="site webkitstatus">
-                <article class="site__inner" itemscope itemtype="http://schema.org/WebSite">
-                    <h3 class="site__title" itemprop="name" translate="no">Webkit status</h3>
-                    <div class="site__links">
-                        <a class="site__link site__link--main | flex-center nowrap" href="https://webkit.org/status" itemprop="url" translate="no">
-                            <span class="site__link__inner">webkit.org/status</span>
-                        </a>
-                    </div>
-                </article>
-            </li>
-
             <!-- Chrome status -->
             <li class="site chrome-status">
                 <article class="site__inner" itemscope itemtype="http://schema.org/WebSite">
@@ -414,6 +400,50 @@
                         <a class="site__link site__link--main | flex-center nowrap" href="https://chromestatus.com" itemprop="url" translate="no">
                             <span class="site__link__inner">chromestatus.com</span>
                         </a>
+                    </div>
+                </article>
+            </li>
+
+            <!-- Mozilla Specification Positions -->
+            <li class="site mozillaspecificationpositions">
+                <article class="site__inner" itemscope itemtype="http://schema.org/WebSite">
+                    <h3 class="site__title" itemprop="name" translate="no">Mozilla Specification Positions</h3>
+                    <p class="site__description" itemprop="abstract">Mozilla’s positions on emerging web specifications. Related: what Mozilla is <a href="https://groups.google.com/a/mozilla.org/g/dev-platform/" title="Mailing list dev-platform@mozilla.org">currently implementing in Firefox</a>.</p>
+                    <div class="site__links">
+                        <a class="site__link site__link--main | flex-center nowrap" href="https://mozilla.github.io/standards-positions/" itemprop="url" translate="no">
+                            <span class="site__link__inner">mozilla.github.io/standards-positions/</span>
+                        </a>
+                        <aside class="site__secondary-links | flex-center">
+                            <a class="site__link | flex-center" href="https://github.com/mozilla/standards-positions/" title="Mozilla Specification Positions" itemscope itemtype="http://schema.org/SoftwareSourceCode">
+                                <meta itemprop="codeRepository" content="https://github.com/mozilla/standards-positions/">
+                                <svg width="33" height="33">
+                                    <title>Code</title>
+                                    <use xlink:href="#code-path"/>
+                                </svg>
+                            </a>
+                        </aside>
+                    </div>
+                </article>
+            </li>
+
+            <!-- Webkit Standards Positions -->
+            <li class="site webkitstandardspositions">
+                <article class="site__inner" itemscope itemtype="http://schema.org/WebSite">
+                    <h3 class="site__title" itemprop="name" translate="no">WebKit Standards Positions</h3>
+                    <p class="site__description" itemprop="abstract">WebKit’s positions on emerging web specifications.</p>
+                    <div class="site__links">
+                        <a class="site__link site__link--main | flex-center nowrap" href="https://webkit.org/standards-positions/" itemprop="url" translate="no">
+                            <span class="site__link__inner">webkit.org/standards-positions/</span>
+                        </a>
+                        <aside class="site__secondary-links | flex-center">
+                            <a class="site__link | flex-center" href="https://github.com/WebKit/standards-positions" title="WebKit Standard Positions" itemscope itemtype="http://schema.org/SoftwareSourceCode">
+                                <meta itemprop="codeRepository" content="https://github.com/WebKit/standards-positions">
+                                <svg width="33" height="33">
+                                    <title>Content</title>
+                                    <use xlink:href="#code-path"/>
+                                </svg>
+                            </a>
+                        </aside>
                     </div>
                 </article>
             </li>

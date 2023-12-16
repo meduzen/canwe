@@ -1,0 +1,76 @@
+.site__links {
+  margin-top: auto;
+
+  @media (--phone) {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+  }
+}
+
+.site__secondary-links {
+  position: relative;
+  z-index: 1;
+
+  align-items: stretch;
+  gap: .25em;
+}
+
+.site__link {
+  min-width: 2em;
+  display: inline-flex;
+
+  vertical-align: middle;
+  text-decoration: none;
+
+  color: var(--site-accent, var(--site-primary));
+
+  &:not(:hover,:focus) {
+    > * {
+      opacity: .6;
+    }
+  }
+
+  > * {
+    transition: opacity .3s var(--in-out-quad);
+  }
+}
+
+.site__link--main {
+  flex: 0 1 auto;
+  padding-bottom: .2rem;
+
+  justify-content: flex-start;
+
+  overflow-x: hidden;
+
+  @media (--before-phone) {
+    display: block;
+  }
+
+  // Focus ring for the site card + hack to make the whole card clickable.
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: calc(var(--site-outline-distance) * -1);
+    z-index: 0;
+
+    border: var(--site-outline-w) solid var(--primary);
+    border-radius: calc(var(--card-radius) + var(--site-outline-distance));
+    opacity: var(--site-outline-visible, 0);
+  }
+}
+
+.site__link__inner {
+  position: relative;
+  z-index: 1;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+}

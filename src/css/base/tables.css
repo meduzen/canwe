@@ -1,0 +1,6 @@
+:where(table) {
+  text-indent: 0;
+
+  border-collapse: collapse;
+  border-color: currentColor;
+}

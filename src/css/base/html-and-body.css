@@ -1,0 +1,32 @@
+/* HTML */
+
+:where(:root) {
+  size: 100% 100%;
+
+  font: 400 46.875% / 1.4 'Alata', 'Futura', 'Trebuchet MS', system-ui, sans-serif;
+  text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: var(--bg);
+  color: var(--primary);
+
+  @media (--phone) {
+    font-size: 62.5%;
+  }
+}
+
+/* BODY */
+
+:where(body) {
+  margin: 0;
+  size: 100% 100%;
+  min-height: 100%;
+
+  font-size: 1.7rem;
+
+  @media (--phone) {
+    overflow-x: hidden;
+  }
+}

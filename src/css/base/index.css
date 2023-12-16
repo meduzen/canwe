@@ -1,0 +1,21 @@
+/**
+ * Files in this folder are heavily inspired by @csstools/normalize.css
+ * (https://github.com/csstools/normalize.css).
+ *
+ * Unused base files are commented.
+ */
+
+@import url('all.css');
+@import url('html-and-body.css');
+// @import url('address.css');
+// @import url('dialog.css');
+// @import url('forms.css');
+@import url('headings.css');
+@import url('images.css');
+@import url('links.css');
+@import url('lists.css');
+// @import url('separators.css');
+// @import url('tables.css');
+@import url('text.css');
+@import url('selection.css');
+// @import url('accessibility.css');

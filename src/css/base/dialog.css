@@ -1,0 +1,16 @@
+:where(dialog) {
+  position: fixed;
+
+  margin: auto;
+  size: fit-content;
+
+  overscroll-behavior-y: contain;
+}
+
+:where(dialog:not([open])) {
+  display: none;
+}
+
+:where(summary) {
+  display: list-item;
+}

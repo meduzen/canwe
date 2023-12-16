@@ -1,0 +1,12 @@
+:where(h1) {
+  margin-block: .67em;
+  font-size: 2em;
+}
+
+// Can We specifics
+
+:where(h1, h2, h3, h4, h5, h6) {
+  @media (--phone) {
+    margin: 0;
+  }
+}
