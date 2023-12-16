@@ -25,8 +25,18 @@
 
   color: var(--site-accent, var(--site-primary));
 
-  &:not(:hover, :focus-visible) {
-    opacity: .6;
+  &:not(:hover,:focus-visible) {
+    /**
+     * By targetting `.site__link__inner` or `<svg>` instead of
+     * `.site__link--main`, we avoid changing the opacity of
+     * `.site__link--main::after` which is the focus ring
+     * of the whole site card, visible on hover/focus.
+     *
+     * This should be changed once we can use `:has`.
+     */
+    > * {
+      opacity: .6;
+    }
   }
 }
 
