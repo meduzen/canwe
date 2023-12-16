@@ -7,7 +7,7 @@
  * Without `:not(:active)`, the element will lose `:focus` starting the
  * mousedown phase, and thus disappear, preventing any click action.
  */
-.visually-hidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus, :active) {
   position: absolute;
   size: 1px;
 

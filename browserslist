@@ -1,13 +1,13 @@
-and_chr >= 75
-Chrome >= 75
+and_chr >= 88
+Chrome >= 88
 
-and_ff >= 91
-Firefox >= 91
+and_ff >= 102
+Firefox >= 102
 
 Edge >= 92
 Opera >= 80
 
-ios_saf >= 12.2
-Safari >= 13.1
+ios_saf >= 14
+Safari >= 14
 
-Samsung >= 11
+Samsung >= 15

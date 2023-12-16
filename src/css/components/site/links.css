@@ -1,5 +1,5 @@
 .site__links {
-  margin-top: auto;
+  margin-block-start: auto;
 
   @media (--phone) {
     display: flex;
@@ -25,20 +25,24 @@
 
   color: var(--site-accent, var(--site-primary));
 
-  &:not(:hover,:focus) {
+  &:not(:hover,:focus-visible) {
+    /**
+     * By targetting `.site__link__inner` or `<svg>` instead of
+     * `.site__link--main`, we avoid changing the opacity of
+     * `.site__link--main::after` which is the focus ring
+     * of the whole site card, visible on hover/focus.
+     *
+     * This should be changed once we can use `:has`.
+     */
     > * {
       opacity: .6;
     }
-  }
-
-  > * {
-    transition: opacity .3s var(--in-out-quad);
   }
 }
 
 .site__link--main {
   flex: 0 1 auto;
-  padding-bottom: .2rem;
+  padding-block-end: .2rem;
 
   justify-content: flex-start;
 

@@ -26,7 +26,6 @@
         "eslint-plugin-playwright": "^0.19.0",
         "husky": "^8.0.3",
         "postcss-preset-env": "^9",
-        "postcss-safe-area": "0.1",
         "postcss-scss": "^4.0.9",
         "postcss-size": "^5.0",
         "size-limit": "^11.0.0",

@@ -4,15 +4,8 @@
   @media (--tablet-7) { --x-space: 4rem; }
   @media (--tablet-10) { --x-space: 6rem; }
 
-  --safe-top: var(--safe-area-top);
-  --safe-right: var(--safe-area-right, var(--x-space));
-  --safe-bottom: var(--safe-area-bottom);
-  --safe-left: var(--safe-area-left, var(--x-space));
-
-  @supports (top: max(0px)) {
-    --safe-area-top: env(safe-area-inset-top, 0);
-    --safe-area-right: max(env(safe-area-inset-right), var(--x-space));
-    --safe-area-bottom: env(safe-area-inset-bottom, 0);
-    --safe-area-left: max(env(safe-area-inset-left), var(--x-space));
-  }
+  --safe-top: env(safe-area-inset-top, 0);
+  --safe-right: max(env(safe-area-inset-right), var(--x-space));
+  --safe-bottom: env(safe-area-inset-bottom, 0);
+  --safe-left: max(env(safe-area-inset-left), var(--x-space));
 }
