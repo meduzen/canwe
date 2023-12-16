@@ -25,14 +25,8 @@
 
   color: var(--site-accent, var(--site-primary));
 
-  &:not(:hover,:focus) {
-    > * {
-      opacity: .6;
-    }
-  }
-
-  > * {
-    transition: opacity .3s var(--in-out-quad);
+  &:not(:hover, :focus-visible) {
+    opacity: .6;
   }
 }
 

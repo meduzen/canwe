@@ -34,7 +34,7 @@
       }
     }
 
-    // Fallback for focus ring.
+    // Fallback for previous, activates on all focuses, not only focus ring.
     @supports not selector(*:has(:focus-visible)) {
       &:focus-within {
         --site-outline-visible: 1;
