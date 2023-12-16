@@ -2,6 +2,7 @@ import postcssPresetEnv from 'postcss-preset-env'
 import postcssSize from 'postcss-size'
 import cssNano from 'cssnano'
 
+/** @type {import('postcss-preset-env').pluginOptions} */
 const postcssPresetEnvOptions = {
   stage: 0,
 
