@@ -1,5 +1,5 @@
 .site__links {
-  margin-top: auto;
+  margin-block-start: auto;
 
   @media (--phone) {
     display: flex;
@@ -32,7 +32,7 @@
 
 .site__link--main {
   flex: 0 1 auto;
-  padding-bottom: .2rem;
+  padding-block-end: .2rem;
 
   justify-content: flex-start;
 

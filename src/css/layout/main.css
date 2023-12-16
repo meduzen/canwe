@@ -1,19 +1,19 @@
 .main {
   @media (--tablet-7) {
-    padding-bottom: 3rem;
+    padding-block-end: 3rem;
   }
 }
 
 .section {
-  margin-top: 4rem;
+  margin-block-start: 4rem;
 
   @media (--tablet-7) {
-    margin-top: 7rem;
+    margin-block-start: 7rem;
   }
 }
 
 .section__title {
-  margin-bottom: 1.2em;
+  margin-block-end: 1.2em;
 }
 
 /**

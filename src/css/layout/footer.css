@@ -1,6 +1,5 @@
 .footer {
-  padding-top: 3rem;
-  padding-bottom: max(var(--safe-bottom), 3rem);
+  padding-block: 3rem max(var(--safe-bottom), 3rem);
 }
 
 .footer__item {

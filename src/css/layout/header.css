@@ -1,10 +1,10 @@
 .header {
   @media (--phone) {
-    padding-top: 2rem;
+    padding-block-start: 2rem;
   }
 
   @media (--tablet-10) {
-    padding-top: 3rem;
+    padding-block-start: 3rem;
   }
 
   @media (--grid) {
@@ -28,8 +28,8 @@
 
 .baseline {
   @media (--phone) and (--before-grid) {
-    padding-left: 1rem;
-    border-left: .5rem solid var(--accent);
+    padding-inline-start: 1rem;
+    border-inline-start: .5rem solid var(--accent);
   }
 
   @media (--tablet-10) {
@@ -38,6 +38,6 @@
 
   @media (--grid) {
     position: relative;
-    top: .7rem;
+    inset-block-start: .7rem;
   }
 }
