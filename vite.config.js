@@ -82,6 +82,7 @@ export default defineConfig({
      * https://github.com/vbenjs/vite-plugin-html/issues/112#issuecomment-1455160080
      */
     createHtmlPlugin({
+      viteNext: true, // prevent deprecation messages output by Vite 5
       minify: {
         collapseWhitespace: false, // create bug: https://github.com/meduzen/canwe/issues/129
         keepClosingSlash: false,
