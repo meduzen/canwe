@@ -28,7 +28,7 @@
         "postcss-preset-env": "^9",
         "postcss-scss": "^4.0.9",
         "postcss-size": "^5.0",
-        "size-limit": "^11.0.0",
+        "size-limit": "^11.0.2",
         "vite": "^5",
         "vite-plugin-eslint": "^1.8.1",
         "vite-plugin-html": "^3.2.1"
