@@ -6,7 +6,7 @@ import cssNano from 'cssnano'
 const postcssPresetEnvOptions = {
   stage: 0,
 
-  // https://github.com/csstools/postcss-plugins/blob/main/plugin-packs/postcss-preset-env/src/plugins/plugins-by-id.mjs
+  // https://github.com/csstools/postcss-plugins/blob/main/plugin-packs/postcss-preset-env/FEATURES.md
   features: {
 
     // https://github.com/maximkoretskiy/postcss-initial
