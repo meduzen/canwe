@@ -43,6 +43,10 @@ if (https && host && env.SERVER_CERTIFICATES_DIR) {
 export default defineConfig({
   root: 'src',
 
+  css: {
+    devSourcemap: true,
+  },
+
   build: {
     envDir: './',
     outDir: `../${outDir}`,
@@ -75,7 +79,10 @@ export default defineConfig({
   },
 
   plugins: [
-    ...(isProd ? [] : [eslintPlugin(esLintOptions)]),
+    ...(isProd ? [] : [{
+      ...eslintPlugin(esLintOptions),
+      enforce: 'pre',
+    }]),
 
     /**
      * Minify HTML: if unmaintained in the long run, see alternatives in
