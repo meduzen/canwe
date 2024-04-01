@@ -20,6 +20,16 @@ const postcssPresetEnvOptions = {
 
     // https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting
     'nesting-rules': true,
+
+    /**
+     * https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting
+     *
+     * `2024-02` is the other possible value, but it makes some nesting
+     * behaviours cumbersome like, `.yo { &, &::before }`, unallowed
+     * by specification:
+     * https://www.w3.org/TR/css-nesting-1/#example-7145ff1e
+     */
+    'nesting-rules': { edition: '2021' }
   },
 }
 
