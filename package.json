@@ -22,7 +22,7 @@
         "@playwright/test": "^1.40.1",
         "@size-limit/preset-app": "^11.1.2",
         "axe-html-reporter": "^2.2.3",
-        "cssnano": "^6",
+        "cssnano": "^7",
         "eslint-formatter-codeframe": "^7.32.1",
         "eslint-plugin-playwright": "^1",
         "husky": "^9",
