@@ -24,7 +24,7 @@ jobs:
       - name: Build website
         run: PW_BASE_URL=${{ env.PW_BASE_URL }} npm run build
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
         run: PW_BASE_URL=${{ env.PW_BASE_URL }} npx playwright test
       - uses: actions/upload-artifact@v4
