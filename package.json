@@ -18,7 +18,7 @@
         "test:ui": "node --env-file=.env node_modules/@playwright/test/cli test --ui"
     },
     "devDependencies": {
-        "@axe-core/playwright": "^4.7",
+        "@axe-core/playwright": "^4.10",
         "@playwright/test": "^1.40.1",
         "@size-limit/preset-app": "^11.1.2",
         "axe-html-reporter": "^2.2.3",
