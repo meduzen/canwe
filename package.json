@@ -24,7 +24,7 @@
         "axe-html-reporter": "^2.2.3",
         "cssnano": "^7",
         "eslint-formatter-codeframe": "^7.32.1",
-        "eslint-plugin-playwright": "^1",
+        "eslint-plugin-playwright": "^2",
         "husky": "^9",
         "postcss-preset-env": "^9",
         "postcss-scss": "^4.0.9",
