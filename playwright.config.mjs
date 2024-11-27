@@ -61,6 +61,9 @@ export default {
     // },
   ].filter(({ name }) => name == 'chromium' || !env.CI),
 
+  // Needed, otherwise `.last-run.json` is in `test-results/.last-run.json`.
+  outputDir: 'tests/results/output-dir',
+
   reporter: env.CI
     ? [['github'], ['html']]
     : [
