@@ -49,7 +49,7 @@ export default {
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
     },
     // {
     //   name: 'firefox',
