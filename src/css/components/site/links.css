@@ -11,6 +11,7 @@
 .site__secondary-links {
   position: relative;
   z-index: 1;
+  padding-block-end: .8rem;
 
   align-items: stretch;
   gap: .25em;
@@ -70,8 +71,10 @@
   position: relative;
   z-index: 1;
 
-  overflow-x: auto;
+  // Scrollbar.
 
+  padding-block-end: 1rem; // reserved space to avoid scrollbar-content overlap
+  overflow-x: auto;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
