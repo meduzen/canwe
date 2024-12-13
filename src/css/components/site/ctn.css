@@ -1,6 +1,10 @@
 .site {
   position: relative;
-  padding: 2rem;
+  /**
+   * `1rem` to compensate the additional `padding-block-end`
+   * on `.site__link__inner` and `.site__secondary-links`.
+   */
+  padding: 2rem 2rem 1rem 2rem;
 
   background: var(--site-bg, var(--primary));
   border-radius: var(--card-radius);
