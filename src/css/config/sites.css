@@ -26,11 +26,6 @@
   --site-accent: hsl(0 0% 100%);
 }
 
-.html5accessibility {
-  --site-primary: hsl(0 0% 20%);
-  --site-bg: hsl(0 0% 97%);
-}
-
 .mdn {
   --site-primary: hsl(0 0% 20%);
   --site-bg: hsl(198 81% 73%);
@@ -39,6 +34,11 @@
 .mozillaspecificationpositions {
   --site-primary: hsl(0 0% 97%);
   --site-bg: hsl(0 0% 20%);
+}
+
+.powermapper {
+  --site-primary: hsl(0 0% 97%);
+  --site-bg: hsl(250 57% 50%);
 }
 
 .privacytests {
