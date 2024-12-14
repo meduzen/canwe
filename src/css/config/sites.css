@@ -36,6 +36,11 @@
   --site-bg: hsl(0 0% 20%);
 }
 
+.powermapper {
+  --site-primary: hsl(0 0% 97%);
+  --site-bg: hsl(250 57% 50%);
+}
+
 .privacytests {
   --site-accent: hsl(106 55% 44%);
 }
