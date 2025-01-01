@@ -19,7 +19,7 @@
     },
     "devDependencies": {
         "@axe-core/playwright": "^4.7",
-        "@playwright/test": "^1.40.1",
+        "@playwright/test": "^1.49.1",
         "@size-limit/preset-app": "^11.1.2",
         "axe-html-reporter": "^2.2.3",
         "cssnano": "^7",
