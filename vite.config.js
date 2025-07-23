@@ -2,7 +2,7 @@ import { resolve } from 'node:path'
 import { homedir } from 'node:os'
 import { env } from 'node:process'
 import { defineConfig } from 'vite'
-import { createHtmlPlugin } from 'vite-plugin-html'
+import simpleHtmlPlugin from 'vite-plugin-simple-html'
 import eslintPlugin from 'vite-plugin-eslint'
 
 const isProd = env?.NODE_ENV === 'production'
@@ -84,22 +84,18 @@ export default defineConfig({
       enforce: 'pre',
     }]),
 
-    /**
-     * Minify HTML: if unmaintained in the long run, see alternatives in
-     * https://github.com/vbenjs/vite-plugin-html/issues/112#issuecomment-1455160080
-     */
-    createHtmlPlugin({
-      viteNext: true, // prevent deprecation messages output by Vite 5
-      minify: {
-        collapseWhitespace: false, // create bug: https://github.com/meduzen/canwe/issues/129
-        keepClosingSlash: false,
+    simpleHtmlPlugin({
+      minify: isProd ? {
+        collapseWhitespaces: 'smart', // https://github.com/swc-project/swc/blob/65534ff998036ca881e27ed13074df7d2cadae5d/crates/swc_html_minifier/src/option.rs#L28-L49
+        // quotes: true, // when false, remove quotes around attributes value
         removeComments: true,
-        // removeRedundantAttributes: true,
-        // removeScriptTypeAttributes: true,
-        // removeStyleLinkTypeAttributes: true,
-        // useShortDoctype: true,
-        // minifyCSS: true,
-      },
+        // removeEmptyAttributes: true,
+        // removeRedundantAttributes: 'all', // https://github.com/swc-project/swc/blob/65534ff998036ca881e27ed13074df7d2cadae5d/crates/swc_html_minifier/src/option.rs#L54C10-L64
+        // tagOmission: false,
+        // minifyCss: true,
+        // minifyJs: false,
+        // minifyJson: true,
+      } : false
     }),
   ],
 })
