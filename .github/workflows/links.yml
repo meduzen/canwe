@@ -17,7 +17,7 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: './**/*.html'
+          args: --exclude '^/' './**/*.html'
           fail: false
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
