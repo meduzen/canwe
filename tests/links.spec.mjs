@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { isNotAnchorLink, isInvalidUrl, getAllHrefAttr, isAnchorLink } from './utils/url.mjs'
+import { isNotAnchorLink, isInvalidUrl, getAllHrefAttr } from './utils/url.mjs'
 
 test.describe('links', () => {
   /**
