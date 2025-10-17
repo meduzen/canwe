@@ -18,9 +18,6 @@ const postcssPresetEnvOptions = {
     // https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc#options
     'nested-calc': { preserve: false },
 
-    // https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting
-    'nesting-rules': true,
-
     /**
      * https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting
      *
@@ -33,7 +30,7 @@ const postcssPresetEnvOptions = {
   },
 }
 
-export default ({ options, env }) => ({
+export default ({ env }) => ({
   /**
    * The SCSS parser is used to allow inline comments in CSS files and to avoid
    * crashes on some unknown keywords like `@container`.
