@@ -27,8 +27,9 @@ jobs:
 
       - name: Create issue
         if: env.lychee_exit_code != 0
-        uses: peter-evans/create-issue-from-file@v4
+        uses: peter-evans/create-issue-from-file@v6
         with:
+          issue-number: 211
           title: Lychee Report
           content-filepath: ./lychee/out.md
           labels: ci
