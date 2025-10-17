@@ -18,6 +18,5 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: './**/*.html'
-          fail: false
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
