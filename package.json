@@ -32,7 +32,7 @@
         "postcss-scss": "^4.0.9",
         "postcss-size": "^5.0",
         "size-limit": "^11.0.0",
-        "typescript-eslint": "^8.0.1",
+        "typescript-eslint": "^8.46.2",
         "vite": "^7",
         "vite-plugin-eslint": "^1.8.1",
         "vite-plugin-simple-html": "^1.0.1"
