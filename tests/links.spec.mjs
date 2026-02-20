@@ -11,7 +11,9 @@ test.describe('links', () => {
   const $anchorLinks = () => page.locator('a[href^="#"]') // `href=#…`
 
   test.beforeAll(async ({ browser }) => page = await browser.newPage())
+
   test.afterAll(async () => await page.close())
+
   test.beforeEach(async () => await page.goto('/'))
 
   test('All links have a valid `href` attribute', async () => {
