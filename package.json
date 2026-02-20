@@ -1,7 +1,7 @@
 {
     "private": true,
     "engines": {
-        "node": ">=22.0"
+        "node": ">=22.12"
     },
     "type": "module",
     "scripts": {
@@ -21,17 +21,17 @@
         "@axe-core/playwright": "^4.7",
         "@eslint/js": "^9.9",
         "@playwright/test": "^1.40.1",
-        "@size-limit/preset-app": "^11.1.2",
+        "@size-limit/preset-app": "^12",
         "axe-html-reporter": "^2.2.3",
         "cssnano": "^7",
         "eslint": "^9.9",
         "eslint-formatter-codeframe": "^7.32.1",
         "eslint-plugin-playwright": "^2",
         "husky": "^9",
-        "postcss-preset-env": "^10",
+        "postcss-preset-env": "^11",
         "postcss-scss": "^4.0.9",
         "postcss-size": "^5.0",
-        "size-limit": "^11.0.0",
+        "size-limit": "^12.0.0",
         "typescript-eslint": "^8.0.1",
         "vite": "^7",
         "vite-plugin-eslint": "^1.8.1",
