@@ -12,6 +12,7 @@
         "lint-fix": "npx eslint --fix --ext .js,.mjs ./",
         "postinstall": "rm -f .eslintcache && husky",
         "prepare": "husky",
+        "prepare-deploy": "node scripts/prepare-deploy.mjs",
         "size": "size-limit",
         "test": "node --env-file=.env node_modules/@playwright/test/cli test",
         "test:absolute-links": "lychee src/index.html",
