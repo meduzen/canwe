@@ -10,9 +10,7 @@
  */
 
 import { execSync } from 'node:child_process'
-import console from 'node:console'
-
-console.time('Cleaning of devDependencies list')
+import console, { warn } from 'node:console'
 
 /** The list of `devDependencies` not needed to build the app. */
 const USELESS_DEPS = [
@@ -30,37 +28,53 @@ const USELESS_DEPS = [
   'typescript',
 ]
 
-const depsArgs = USELESS_DEPS
-  /**
-   * Exclude invalid names, which reduces the risk of failure since we try
-   * to remove all deps in one command: they’ll all be deleted or fail.
-   */
-  .filter(hasValidName)
+const benchmarkLabel = 'Cleaning of devDependencies list'
 
-  // Wrap dep names with single quotes, which is needed for `@scope/name` deps.
-  .map(dep => `'${dep}'`)
+console.time(benchmarkLabel)
 
-  // Create a space-separated list of `devDepencies.'(@scope/)name'`.
-  .join(` devDependencies.`)
+sliceDevDependencies(USELESS_DEPS)
 
-try {
-  execSync(`npm pkg delete devDependencies.${depsArgs}`, {
-    stdio: 'inherit',
-    timeout: 5000,
-  })
-} catch (error) {
-  console.warn(`Slicing of devDepencencies failed: ${error.message}`);
+console.timeEnd(benchmarkLabel);
+
+/**
+ * Remove `devDependencies` from `package.json`.
+ *
+ * @param {string[]} devDeps A list of devDependencies names.
+ */
+function sliceDevDependencies(devDeps) {
+  const depsArgs = devDeps
+    /**
+     * Exclude invalid names, which reduces the risk of failure since we try
+     * to remove all deps in one command: they’ll all be deleted or fail.
+     */
+    .filter(hasValidName)
+
+    // Wrap dep names with single quotes, which is needed for `@scope/name` deps.
+    .map(dep => `'${dep}'`)
+
+    // Create a space-separated list of `devDepencies.'(@scope/)name'`.
+    .join(` devDependencies.`)
+
+  if (depsArgs.length) {
+    try {
+      execSync(`npm pkg delete devDependencies.${depsArgs}`, {
+        stdio: 'inherit',
+        timeout: 5000,
+      })
+    } catch (error) {
+      warn(`Slicing of devDepencencies failed: ${error.message}`);
+    }
+  } else {
+    warn('No devDepencencies to slice.');
+  }
 }
 
-console.timeEnd('Cleaning of devDependencies list');
-
-/** Utils */
-
+/** @param {string} name The name of the dependency. */
 function hasValidName (name) {
   const isValid = /^[a-zA-Z0-9@/_.-]+$/.test(name)
 
   if (!isValid) {
-    console.warn(`Invalid dependency name: ${name} will stay.`)
+    warn(`Invalid dependency name: ${name} will stay.`)
   }
 
   return isValid
