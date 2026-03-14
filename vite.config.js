@@ -53,11 +53,12 @@ export default defineConfig({
     emptyOutDir: true,
     cssCodeSplit: false,
     /**
-     * esbuild compensates https://github.com/cssnano/cssnano/issues/1488.
-     * `cssMinify` won’t be disabled until the issue is fixed.
+     * CSS Nano is the minifier used, despite
+     * https://github.com/cssnano/cssnano/issues/1488.
+     * Could be compensated by using `esbuild`, but not worth it.
      */
-    // cssMinify: false,
-    rollupOptions: {
+    cssMinify: false,
+    rolldownOptions: {
       input: {
         app: resolve('./src/index.html'),
       },
