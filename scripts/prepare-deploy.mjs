@@ -62,7 +62,7 @@ function sliceDevDependencies(devDeps) {
         timeout: 5000,
       })
     } catch (error) {
-      warn(`Slicing of devDepencencies failed: ${error.message}`);
+      warn(`Slicing of devDependencies failed: ${error.message}`);
     }
   } else {
     warn('No devDepencencies to slice.');
