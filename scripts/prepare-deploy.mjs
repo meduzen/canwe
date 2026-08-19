@@ -34,7 +34,7 @@ console.time(benchmarkLabel)
 
 sliceDevDependencies(USELESS_DEPS)
 
-console.timeEnd(benchmarkLabel);
+console.timeEnd(benchmarkLabel)
 
 /**
  * Remove `devDependencies` from `package.json`.
@@ -62,10 +62,10 @@ function sliceDevDependencies(devDeps) {
         timeout: 5000,
       })
     } catch (error) {
-      warn(`Slicing of devDependencies failed: ${error.message}`);
+      warn(`Slicing of devDependencies failed: ${error.message}`)
     }
   } else {
-    warn('No devDepencencies to slice.');
+    warn('No devDepencencies to slice.')
   }
 }
 

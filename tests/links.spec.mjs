@@ -12,9 +12,10 @@ test.describe('links', () => {
 
   test.beforeAll(async ({ browser }) => page = await browser.newPage())
 
+  test.beforeEach(async () => await page.goto('/'))
+
   test.afterAll(async () => await page.close())
 
-  test.beforeEach(async () => await page.goto('/'))
 
   test('All links have a valid `href` attribute', async () => {
     // @todo: improve this
