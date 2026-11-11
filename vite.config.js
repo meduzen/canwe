@@ -53,9 +53,8 @@ export default defineConfig({
     emptyOutDir: true,
     cssCodeSplit: false,
     /**
-     * CSS Nano is the minifier used, despite
-     * https://github.com/cssnano/cssnano/issues/1488.
-     * Could be compensated by using `esbuild`, but not worth it.
+     * CSS Nano is used instead through PostCSS.
+     * @see `postcss.config.js`
      */
     cssMinify: false,
     rolldownOptions: {

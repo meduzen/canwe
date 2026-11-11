@@ -30,6 +30,27 @@ const postcssPresetEnvOptions = {
   },
 }
 
+/** @type {import('cssnano').Options} */
+const cssNanoOptions = {
+  preset: [
+    'default', {
+      calc: {
+        /**
+         * Remove `calc` in `calc(max(…))`.
+         * @link https://github.com/postcss/postcss-calc#unwrapsinglevalue-default-false-1
+         */
+        unwrapSingleValue: true
+      },
+      convertValues: {
+        // preserve `calc(.3 / 1.3em)` instead of becoming `.23077em`
+        precision: false,
+        // solves https://github.com/cssnano/cssnano/issues/1488
+        transformCustomProperties: true
+      },
+    },
+  ],
+}
+
 export default ({ env }) => ({
   /**
    * The SCSS parser is used to allow inline comments in CSS files and to avoid
@@ -39,6 +60,6 @@ export default ({ env }) => ({
   plugins: [
     postcssSize(),
     postcssPresetEnv(postcssPresetEnvOptions),
-    env === 'production' ? cssNano() : false,
+    env === 'production' ? cssNano(cssNanoOptions) : false,
   ],
 })
