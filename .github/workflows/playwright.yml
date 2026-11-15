@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 26
+      - name: Purge devDependencies
+        run: ./scripts/prepare-playwright.sh
       - name: Install dependencies
         run: npm ci
       - run: touch .env && echo "PW_BASE_URL='http://localhost:4173'" >> .env
