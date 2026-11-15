@@ -13,13 +13,26 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [26]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+
+      # https://github.com/actions/setup-node
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v7
         with:
           node-version: 26
+          cache: 'npm'
+
+      - name: Purge unneeded devDependencies
+        run: ./scripts/prepare-playwright.sh || true
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --audit=false --fund=false
       - run: touch .env && echo "PW_BASE_URL='http://localhost:4173'" >> .env
       - name: Build website
         run: PW_BASE_URL=${{ env.PW_BASE_URL }} npm run build
